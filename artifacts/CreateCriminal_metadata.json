@@ -1,0 +1,188 @@
+{
+	"compiler": {
+		"version": "0.8.6+commit.11564f7e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "pictureCID",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "civilianID",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "age",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "height",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "mothersName",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "fathersName",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "dateOfBirth",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "skinTone",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "hairColor",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "facialHairColor",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "physique",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "eyeColor",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "identificationMark",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "religion",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "weight",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "nativeLanguage",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "citizenship",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "placeOfBirth",
+								"type": "string"
+							}
+						],
+						"internalType": "struct CriminalData",
+						"name": "_criminalData",
+						"type": "tuple"
+					}
+				],
+				"name": "createCriminal",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "deployedContracts",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getDeployedContracts",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"ethereum\\contracts\\backend.sol": "CreateCriminal"
+		},
+		"evmVersion": "berlin",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"ethereum\\contracts\\backend.sol": {
+			"keccak256": "0x88e2d5a77e72024069d4f480e61a8e29c823ff56c51eea98571538233fa56d8b",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://805c753de08459650399bf6f646451f71c6bcd1b1c8ffa1f13b5bc07187f7ac6",
+				"dweb:/ipfs/QmbahoRn3oHF4TjnXdN7ikyKtpvGPG9zcTwwwx7yL8UceL"
+			]
+		}
+	},
+	"version": 1
+}
