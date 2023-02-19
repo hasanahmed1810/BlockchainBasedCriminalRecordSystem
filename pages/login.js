@@ -1,9 +1,12 @@
 import * as React from "react";
 import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import auth from "../firebase.js"
+import { useRouter } from "next/router";
+import { auth } from "../firebase"
+
 
 export default function login() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -14,12 +17,15 @@ export default function login() {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log(user)
+        console.log(user);
+        router.push("/")
         // ...
+
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        router.push("/wrong")
       });
   }
 
