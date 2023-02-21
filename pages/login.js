@@ -2,8 +2,7 @@ import * as React from "react";
 import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from "next/router";
-import { auth } from "../firebase"
-
+import { auth } from "../firebase";
 
 export default function login() {
   const router = useRouter();
@@ -18,14 +17,13 @@ export default function login() {
         // Signed in
         const user = userCredential.user;
         console.log(user);
-        router.push("/")
+        router.push("/");
         // ...
-
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        router.push("/wrong")
+        router.push("/wrong");
       });
   }
 
@@ -48,7 +46,7 @@ export default function login() {
             <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
               Sign in to your account
             </h1>
-            <form class="space-y-4 md:space-y-6" action="#">
+            <form onSubmit={submit} class="space-y-4 md:space-y-6" action="#">
               <div>
                 <label
                   for="email"
@@ -84,7 +82,6 @@ export default function login() {
                 />
               </div>
               <button
-                onClick={submit}
                 type="submit"
                 class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
               >
