@@ -19,7 +19,9 @@ function AuthGuard({ children }) {
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      if (!user) {
+      if (user || router.asPath == "/landingPage") {
+        
+      } else {
         router.push("/login");
       }
     });
