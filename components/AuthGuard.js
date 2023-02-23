@@ -29,7 +29,7 @@ function AuthGuard({ children }) {
         if (user) {
           setUser(user.email);
         } else {
-          setUser(null)
+          setUser(null);
         }
       } else {
         router.push("/login");
@@ -76,6 +76,13 @@ function AuthGuard({ children }) {
         </div>
       </nav>
       {children}
+      <footer class="bg-blue-100 shadow md:flex md:items-center md:justify-between md:p-6 ">
+        <span class="p-4 text-sm text-gray-500 sm:text-center dark:text-gray-400 m-auto">
+          <p class="hover:underline">
+            © 2023 Criminal Chain™ All Rights Reserved
+          </p>
+        </span>
+      </footer>
     </div>
   );
 }

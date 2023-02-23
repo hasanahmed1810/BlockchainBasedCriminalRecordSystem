@@ -5,9 +5,18 @@ function criminalDetail({ criminalData, id, criminalRecords }) {
   return (
     <>
       <div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-28 mt-28 mb-16 border border-gray">
-        <img class="w-32" src={"https://" + criminalData[0] + ".ipfs.w3s.link"} alt="" />
-        <table class="w-full text-sm text-left text-gray-500 ">
-          <thead class="text-xs text-gray-700 uppercase bg-gray-50 border border-b-1">
+        <table class="w-full text-sm text-left text-gray-700 ">
+          <caption class="p-5 text-2xl font-semibold text-left text-gray-900 bg-blue-100 ">
+            <img
+              class="float-right w-32 rounded-lg bg-blue-100"
+              src={"https://" + criminalData[0] + ".ipfs.w3s.link"}
+            />
+            Criminal Details
+            <br />
+            <br />
+            Contract ID: {id}
+          </caption>
+          <thead class="text-xs text-gray-700 uppercase bg-blue-50 border border-b-1">
             <tr>
               <th scope="col" class="px-6 py-3">
                 Name
@@ -38,7 +47,7 @@ function criminalDetail({ criminalData, id, criminalRecords }) {
               <td class="px-6 py-4">{criminalData[7]}</td>
               <td class="px-6 py-4">{criminalData[16]}</td>
             </tr>
-            <tr class="bg-gray-50 border-b ">
+            <tr class="bg-blue-50 border-b ">
               <th scope="col" class="px-6 py-3">
                 HAIR COLOR
               </th>
@@ -66,7 +75,7 @@ function criminalDetail({ criminalData, id, criminalRecords }) {
               <td class="px-6 py-4">{criminalData[15]}</td>
               <td class="px-6 py-4">{criminalData[11]}</td>
             </tr>
-            <tr class="bg-gray-50 border-b ">
+            <tr class="bg-blue-50 border-b ">
               <th scope="col" class="px-6 py-3">
                 MOTHER'S NAME
               </th>
@@ -87,7 +96,7 @@ function criminalDetail({ criminalData, id, criminalRecords }) {
               </th>
             </tr>
             <tr class="bg-white ">
-              <td class="px-6 py-4  ">{criminalData[5]}</td>
+              <td class="px-6 py-4">{criminalData[5]}</td>
               <td class="px-6 py-4">{criminalData[6]}</td>
               <td class="px-6 py-4">{criminalData[14]}</td>
               <td class="px-6 py-4">{criminalData[18]}</td>
@@ -99,7 +108,7 @@ function criminalDetail({ criminalData, id, criminalRecords }) {
         <a href="/">
           <button
             type="button"
-            class="w-full text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-32 py-2.5 text-center"
+            class="w-full text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm px-32 py-2.5 text-center"
           >
             Go Back
           </button>
@@ -107,11 +116,11 @@ function criminalDetail({ criminalData, id, criminalRecords }) {
       </div>
 
       <div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-28 mb-28 border border-gray">
-        <table class="w-full text-sm text-left text-gray-500 ">
-          <caption class="p-5 text-lg font-semibold text-left text-gray-900 bg-white ">
+        <table class="w-full text-sm text-left text-gray-700 ">
+          <caption class="p-5 text-lg font-semibold text-left text-gray-900 bg-blue-100 ">
             Criminal Records
           </caption>
-          <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
+          <thead class="text-xs text-gray-700 uppercase bg-blue-50 ">
             <tr>
               <th scope="col" class="px-6 py-3">
                 Trial number
@@ -145,7 +154,7 @@ function criminalDetail({ criminalData, id, criminalRecords }) {
         <a href={"/addRecord//" + id}>
           <button
             type="button"
-            class="w-full text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-32 py-2.5 text-center"
+            class="w-full text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300  font-medium text-sm px-32 py-2.5 text-center"
           >
             Add Criminal Record
           </button>

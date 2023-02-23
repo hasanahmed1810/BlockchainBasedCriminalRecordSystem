@@ -37,9 +37,9 @@ export default function index({ criminals, criminalData }) {
     //   enter info
     // </button></div>
     <>
-      <div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-28 mt-28 mb-4 border border-gray">
-        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-          <thead class="text-xs  uppercase bg-gray-50">
+      <div class="relative overflow-x-auto shadow-md sm:rounded-lg m-28 border border-gray">
+        <table class="w-full text-sm text-left text-gray-700">
+          <thead class="text-xs uppercase bg-blue-50">
             <tr>
               <th scope="col" class="px-6 py-3">
                 Name
@@ -78,7 +78,7 @@ export default function index({ criminals, criminalData }) {
               // console.log(element[0])
               return (
                 <Link href={"CriminalDetail//" + criminals[index]}>
-                  <tr class="bg-white border-b ">
+                  <tr class="cursor-pointer transition ease-in-out delay-100 hover:bg-blue-100 bg-white border-b ">
                     <td class="px-6 py-4">{element[1]}</td>
                     <td class="px-6 py-4">{element[2]}</td>
                     <td class="px-6 py-4">{element[3]}</td>
@@ -94,7 +94,7 @@ export default function index({ criminals, criminalData }) {
         <a href="/addCriminalForm">
           <button
             type="button"
-            class="w-full text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-32 py-2.5 text-center"
+            class="w-full text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm px-32 py-2.5 text-center"
           >
             Add Criminal
           </button>

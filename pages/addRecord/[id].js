@@ -11,6 +11,12 @@ export default function addRecord() {
   const [jail, setJail] = useState("");
   const [location, setLocation] = useState("");
 
+  function cancel(event) {
+    event.preventDefault();
+    const { id } = router.query;
+    router.push("/CriminalDetail/" + id);
+  }
+
   async function submit(event) {
     event.preventDefault();
     // console.log(trialNumber, date, crime, jail, location);
@@ -21,11 +27,14 @@ export default function addRecord() {
         from: "0x19EB8fcE962B24acf466dbA05B52Aa299B24Ac27",
         gas: 6721975,
       });
-    router.push("/CriminalDetail/" + id)
+    router.push("/CriminalDetail/" + id);
   }
 
   return (
-    <form class="m-28 border border-gray p-16 shadow-md sm:rounded-lg">
+    <form
+      onSubmit={submit}
+      class="bg-blue-50 m-28 border border-gray p-16 shadow-md sm:rounded-lg"
+    >
       <div class="mb-6">
         <label for="trial" class="block mb-2 text-sm font-medium text-gray-900">
           Trial Number
@@ -34,8 +43,7 @@ export default function addRecord() {
           onChange={(event) => setTrialNumber(event.target.value)}
           type="text"
           id="trial"
-          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-          placeholder="1230404"
+          class=" border border-blue-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-4 focus:border-blue-60 block w-full p-2.5 "
           required
         />
       </div>
@@ -51,8 +59,7 @@ export default function addRecord() {
             onChange={(event) => setDate(event.target.value)}
             type="text"
             id="date"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-            placeholder="01/01/2001"
+            class=" border border-blue-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-4 focus:border-blue-60 block w-full p-2.5 "
             required
           />
         </div>
@@ -67,8 +74,7 @@ export default function addRecord() {
             onChange={(event) => setCrime(event.target.value)}
             type="text"
             id="crime"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-            placeholder="murder"
+            class=" border border-blue-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-4 focus:border-blue-60 block w-full p-2.5 "
             required
           />
         </div>
@@ -83,8 +89,7 @@ export default function addRecord() {
             onChange={(event) => setJail(event.target.value)}
             type="text"
             id="jail"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  "
-            placeholder="name"
+            class=" border border-blue-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-4 focus:border-blue-60 block w-full p-2.5  "
             required
           />
         </div>
@@ -99,15 +104,23 @@ export default function addRecord() {
             onChange={(event) => setLocation(event.target.value)}
             type="text"
             id="location"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  "
-            placeholder="name"
+            class=" border border-blue-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-4 focus:border-blue-60 block w-full p-2.5  "
             required
           />
         </div>
       </div>
 
       <button
-        onClick={submit}
+        id="cancel"
+        type="button"
+        onClick={cancel}
+        class="bg-white text-blue-700 hover:bg-gray-300 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-20 py-2.5 text-center mr-4"
+      >
+        Cancel
+      </button>
+
+      <button
+        id="submit"
         type="submit"
         class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-20 py-2.5 text-center "
       >
@@ -116,5 +129,3 @@ export default function addRecord() {
     </form>
   );
 }
-
-// addRecord.getInitialProps = async

@@ -2,10 +2,13 @@ import * as React from "react";
 import { useState } from "react";
 import createCriminal from "../ethereum/createCriminal.js";
 import { useRouter } from "next/router";
-import { Web3Storage } from 'web3.storage'
+import { Web3Storage } from "web3.storage";
 
 export default function AddressForm() {
-  const client = new Web3Storage({token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDllODI2M2I5NGZmMjNFNDIyMjc3NWI3Q0I2ZWVkOWIzNjY2MWZiODQiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2NjU2NjgzMDIwODMsIm5hbWUiOiJGWVAifQ.Z5f_2aRj4-6B1fcXc71VMduUXjYk2lNUF5CuJn9Iy6I"})
+  const client = new Web3Storage({
+    token:
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDllODI2M2I5NGZmMjNFNDIyMjc3NWI3Q0I2ZWVkOWIzNjY2MWZiODQiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2NjU2NjgzMDIwODMsIm5hbWUiOiJGWVAifQ.Z5f_2aRj4-6B1fcXc71VMduUXjYk2lNUF5CuJn9Iy6I",
+  });
   const router = useRouter();
   const [name, setName] = useState("");
   const [civID, setCid] = useState("");
@@ -27,9 +30,17 @@ export default function AddressForm() {
   const [placeOfBirth, setPlaceOfBirth] = useState("");
   const [image, setImage] = useState();
 
+  function cancel(event) {
+    event.preventDefault();
+    router.push("/");
+  }
+
   async function submit(event) {
     event.preventDefault();
-    const cid = await client.put(image, {name: name, wrapWithDirectory : false })
+    const cid = await client.put(image, {
+      name: name,
+      wrapWithDirectory: false,
+    });
     const data = [
       cid,
       name,
@@ -59,7 +70,10 @@ export default function AddressForm() {
     console.log(data);
   }
   return (
-    <form class="m-28 border border-gray p-16 shadow-md sm:rounded-lg">
+    <form
+      onSubmit={submit}
+      class="bg-blue-50 m-28 border border-gray p-16 shadow-md sm:rounded-lg"
+    >
       <div class="grid gap-6 mb-6 md:grid-cols-2">
         <div>
           <label
@@ -72,7 +86,7 @@ export default function AddressForm() {
             onChange={(event) => setName(event.target.value)}
             type="text"
             id="name"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+            class="border border-blue-300 focus:outline-none focus:ring-4 focus:border-blue-50 text-gray-900 text-sm rounded-lg  block w-full p-2.5 "
             placeholder=""
             required
           />
@@ -88,7 +102,7 @@ export default function AddressForm() {
             onChange={(event) => setCid(event.target.value)}
             type="number"
             id="CID"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+            class=" border border-blue-300 focus:outline-none focus:ring-4 focus:border-blue-50 text-gray-900 text-sm rounded-lg block w-full p-2.5 "
             placeholder=""
             required
           />
@@ -104,7 +118,7 @@ export default function AddressForm() {
             onChange={(event) => setAge(event.target.value)}
             type="number"
             id="age"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+            class=" border border-blue-300 focus:outline-none focus:ring-4 focus:border-blue-50 text-gray-900 text-sm rounded-lg  block w-full p-2.5 "
             placeholder=""
             required
           />
@@ -120,7 +134,7 @@ export default function AddressForm() {
             onChange={(event) => setHeight(event.target.value)}
             type="number"
             id="height"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  "
+            class=" border border-blue-300 focus:outline-none focus:ring-4 focus:border-blue-50 text-gray-900 text-sm rounded-lg  block w-full p-2.5  "
             placeholder=""
             required
           />
@@ -136,7 +150,7 @@ export default function AddressForm() {
             onChange={(event) => setWeight(event.target.value)}
             type="number"
             id="weight"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  "
+            class=" border border-blue-300 focus:outline-none focus:ring-4 focus:border-blue-50 text-gray-900 text-sm rounded-lg  block w-full p-2.5  "
             placeholder=""
             required
           />
@@ -152,7 +166,7 @@ export default function AddressForm() {
             onChange={(event) => setPhysique(event.target.value)}
             type="text"
             id="physique"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+            class=" border border-blue-300 focus:outline-none focus:ring-4 focus:border-blue-50 text-gray-900 text-sm rounded-lg  block w-full p-2.5 "
             placeholder=""
             required
           />
@@ -168,7 +182,7 @@ export default function AddressForm() {
             onChange={(event) => setMother(event.target.value)}
             type="text"
             id="mother"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+            class=" border border-blue-300 focus:outline-none focus:ring-4 focus:border-blue-50 text-gray-900 text-sm rounded-lg  block w-full p-2.5 "
             placeholder=""
             required
           />
@@ -184,7 +198,7 @@ export default function AddressForm() {
             onChange={(event) => setFather(event.target.value)}
             type="text"
             id="father"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+            class=" border border-blue-300 focus:outline-none focus:ring-4 focus:border-blue-50 text-gray-900 text-sm rounded-lg  block w-full p-2.5 "
             placeholder=""
             required
           />
@@ -200,7 +214,7 @@ export default function AddressForm() {
             onChange={(event) => setDob(event.target.value)}
             type="text"
             id="DOB"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+            class=" border border-blue-300 focus:outline-none focus:ring-4 focus:border-blue-50 text-gray-900 text-sm rounded-lg  block w-full p-2.5 "
             placeholder=""
             required
           />
@@ -216,7 +230,7 @@ export default function AddressForm() {
             onChange={(event) => setSkinTone(event.target.value)}
             type="text"
             id="skinTone"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+            class=" border border-blue-300 focus:outline-none focus:ring-4 focus:border-blue-50 text-gray-900 text-sm rounded-lg  block w-full p-2.5 "
             placeholder=""
             required
           />
@@ -232,7 +246,7 @@ export default function AddressForm() {
             onChange={(event) => setNativeLanguage(event.target.value)}
             type="text"
             id="lang"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+            class=" border border-blue-300 focus:outline-none focus:ring-4 focus:border-blue-50 text-gray-900 text-sm rounded-lg  block w-full p-2.5 "
             placeholder=""
             required
           />
@@ -248,7 +262,7 @@ export default function AddressForm() {
             onChange={(event) => setHairColor(event.target.value)}
             type="text"
             id="hairColor"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+            class=" border border-blue-300 focus:outline-none focus:ring-4 focus:border-blue-50 text-gray-900 text-sm rounded-lg  block w-full p-2.5 "
             placeholder=""
             required
           />
@@ -264,7 +278,7 @@ export default function AddressForm() {
             onChange={(event) => setFacialHairColor(event.target.value)}
             type="text"
             id="facialHairColor"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+            class=" border border-blue-300 focus:outline-none focus:ring-4 focus:border-blue-50 text-gray-900 text-sm rounded-lg  block w-full p-2.5 "
             placeholder=""
             required
           />
@@ -280,7 +294,7 @@ export default function AddressForm() {
             onChange={(event) => setEyeColor(event.target.value)}
             type="text"
             id="eyeColor"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+            class=" border border-blue-300 focus:outline-none focus:ring-4 focus:border-blue-50 text-gray-900 text-sm rounded-lg  block w-full p-2.5 "
             placeholder=""
             required
           />
@@ -296,7 +310,7 @@ export default function AddressForm() {
             onChange={(event) => setMark(event.target.value)}
             type="text"
             id="mark"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+            class=" border border-blue-300 focus:outline-none focus:ring-4 focus:border-blue-50 text-gray-900 text-sm rounded-lg  block w-full p-2.5 "
             placeholder=""
             required
           />
@@ -312,7 +326,7 @@ export default function AddressForm() {
             onChange={(event) => setReligion(event.target.value)}
             type="text"
             id="religion"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+            class=" border border-blue-300 focus:outline-none focus:ring-4 focus:border-blue-50 text-gray-900 text-sm rounded-lg  block w-full p-2.5 "
             placeholder=""
             required
           />
@@ -328,7 +342,7 @@ export default function AddressForm() {
             onChange={(event) => setCitizenship(event.target.value)}
             type="text"
             id="citizenship"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+            class=" border border-blue-300 focus:outline-none focus:ring-4 focus:border-blue-50 text-gray-900 text-sm rounded-lg  block w-full p-2.5 "
             placeholder=""
             required
           />
@@ -344,7 +358,7 @@ export default function AddressForm() {
             onChange={(event) => setPlaceOfBirth(event.target.value)}
             type="text"
             id="birth"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+            class=" border border-blue-300 focus:outline-none focus:ring-4 focus:border-blue-50 text-gray-900 text-sm rounded-lg  block w-full p-2.5 "
             placeholder=""
             required
           />
@@ -359,13 +373,21 @@ export default function AddressForm() {
       </label>
       <input
         onChange={(event) => setImage(event.target.files)}
-        class="p-4 block w-full text-lg text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50  focus:outline-none mb-8"
+        class="p-4 block w-full text-lg text-gray-900 border border-blue-300 rounded-lg cursor-pointer bg-white  focus:outline-none focus:ring-4 focus:border-blue-50 mb-8"
         id="large_size"
         type="file"
+        required
       ></input>
 
       <button
-        onClick={submit}
+        type="button"
+        onClick={cancel}
+        class="bg-white text-blue-700 hover:bg-gray-300 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-20 py-2.5 text-center mr-4"
+      >
+        Cancel
+      </button>
+
+      <button
         type="submit"
         class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-20 py-2.5 text-center "
       >
