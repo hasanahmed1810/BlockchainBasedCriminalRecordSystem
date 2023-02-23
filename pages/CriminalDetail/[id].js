@@ -10,6 +10,7 @@ function criminalDetail({ criminalData, id, criminalRecords }) {
             <img
               class="float-right w-32 rounded-lg bg-blue-100"
               src={"https://" + criminalData[0] + ".ipfs.w3s.link"}
+              alt=""
             />
             Criminal Details
             <br />
