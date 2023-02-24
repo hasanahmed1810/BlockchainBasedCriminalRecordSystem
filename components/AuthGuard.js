@@ -25,7 +25,7 @@ function AuthGuard({ children }) {
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      if (user || router.asPath == "/landingPage") {
+      if (user || router.asPath == "/landingPage" || router.asPath == "/createFIR") {
         if (user) {
           setUser(user.email);
         } else {

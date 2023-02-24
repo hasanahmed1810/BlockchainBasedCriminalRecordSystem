@@ -7,7 +7,7 @@ export default function index({ criminals, criminalData }) {
   const [search, setSearch] = useState();
 
   return (
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg m-28 border border-gray">
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg m-28 border border-gray mb-44">
       <table class="w-full text-sm text-left text-gray-700">
         <caption class="p-5 text-2xl font-semibold text-left text-gray-900 bg-blue-100 ">
           List of Criminals

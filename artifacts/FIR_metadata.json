@@ -1,0 +1,179 @@
+{
+	"compiler": {
+		"version": "0.8.6+commit.11564f7e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_cid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_phoneNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_emailaddress",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_currentAddress",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_policeStation",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_dateOfIncident",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_timeOfIncident",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_placeOfIncident",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_detailsOfIncident",
+						"type": "string"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "abortInvestigation",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getData",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "startInvestigation",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"ethereum\\contracts\\civilian_reports.sol": "FIR"
+		},
+		"evmVersion": "berlin",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"ethereum\\contracts\\civilian_reports.sol": {
+			"keccak256": "0x2aa565e038fa24731bade55ba3f3279c1a7421f250cccf12a1e45f68d200170c",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://ebb2ee7399d85326705c553039dfc17a4c78a2e1dc1a04ca29977753efeba3f1",
+				"dweb:/ipfs/QmT7u9j9C88aeW7ZewLP8B1mfAfRG2zxGxtU75MkAUxbVX"
+			]
+		}
+	},
+	"version": 1
+}
