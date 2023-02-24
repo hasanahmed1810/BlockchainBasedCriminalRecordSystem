@@ -2,6 +2,8 @@ import * as React from "react";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import criminal from "../../ethereum/criminal.js";
+import { db } from "../../firebase.js";
+import { doc, setDoc } from "firebase/firestore";
 
 export default function addRecord() {
   const router = useRouter();
@@ -19,14 +21,14 @@ export default function addRecord() {
 
   async function submit(event) {
     event.preventDefault();
-    // console.log(trialNumber, date, crime, jail, location);
     const { id } = router.query;
-    criminal(id)
+    const transaction = await criminal(id)
       .methods.addRecord(trialNumber, date, crime, jail, location)
       .send({
         from: "0x19EB8fcE962B24acf466dbA05B52Aa299B24Ac27",
         gas: 6721975,
       });
+    await setDoc(doc(db, "add record transactions", transaction.transactionHash), transaction);
     router.push("/CriminalDetail/" + id);
   }
 

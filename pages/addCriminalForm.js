@@ -3,6 +3,8 @@ import { useState } from "react";
 import createCriminal from "../ethereum/createCriminal.js";
 import { useRouter } from "next/router";
 import { Web3Storage } from "web3.storage";
+import { db } from "../firebase.js";
+import { doc, setDoc } from "firebase/firestore";
 
 export default function AddressForm() {
   const client = new Web3Storage({
@@ -62,10 +64,11 @@ export default function AddressForm() {
       citizenship,
       placeOfBirth,
     ];
-    createCriminal.methods.createCriminal(data).send({
+    const transaction = await createCriminal.methods.createCriminal(data).send({
       from: "0x19EB8fcE962B24acf466dbA05B52Aa299B24Ac27",
       gas: 6721975,
     });
+    await setDoc(doc(db, "create criminal transactions", transaction.transactionHash), transaction);
     router.push("/");
     console.log(data);
   }
