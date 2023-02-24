@@ -4,103 +4,94 @@ import criminal from "../ethereum/criminal.js";
 import Link from "next/link";
 
 export default function index({ criminals, criminalData }) {
-  // const [criminals, setCriminals] = useState([]);
-
-  // useEffect(async () => {
-  //   const criminals = await createCriminal.methods
-  //     .getDeployedContracts()
-  //     .call();
-
-  //   setCriminals(criminals);
-  //   console.log(criminals);
-  // }, []);
-
-  async function submit() {
-    // var data = {pictureCID: "0", name: "jason", civilianID: 0, age: 30, height: 180, mothersName: "0", fathersName: "0", dateOfBirth: "0", skinTone: "0", hairColor: "0", facialHairColor: "0", physique: "0", eyeColor: "0", identificationMark: "0", religion: "0", religion: "0", religion: "0"}
-    // var data2 = ("000","john",3467893348,30,180,"mary","jack","01/01/1990","white","black","black","slim","black","scar on eye","islam","example","urdu");
-    // const data3 = ["000","hasan",3467893348,30,180,"mary","jack","01/01/1990","white","black","black","slim","black","scar on eye","islam","example","urdu"];
-    // createCriminal.methods
-    //   .createCriminal(data3)
-    //   .send({ from: "0x19EB8fcE962B24acf466dbA05B52Aa299B24Ac27", gas: 6721975 });
-    // location.reload();
-    // <a href="/addCriminalForm"></a>
-  }
+  const [search, setSearch] = useState();
 
   return (
-    // <div>
-    // {criminals}
-    // <br />
-    // <button
-    //   class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-10"
-    //   onClick={submit}
-    // >
-    //   enter info
-    // </button></div>
-    <>
-      <div class="relative overflow-x-auto shadow-md sm:rounded-lg m-28 border border-gray">
-        <table class="w-full text-sm text-left text-gray-700">
-          <thead class="text-xs uppercase bg-blue-50">
-            <tr>
-              <th scope="col" class="px-6 py-3">
-                Name
-              </th>
-              <th scope="col" class="px-6 py-3">
-                Civilian ID
-              </th>
-              <th scope="col" class="px-6 py-3">
-                age
-              </th>
-              <th scope="col" class="px-6 py-3">
-                height
-              </th>
-              <th scope="col" class="px-6 py-3">
-                date of birth
-              </th>
-              <th scope="col" class="px-6 py-3">
-                native language
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {/* <tr class="bg-white border-b ">
-            <th scope="row" class="px-6 py-4 font-medium  whitespace-nowrap ">
-              Example 1
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg m-28 border border-gray">
+      <table class="w-full text-sm text-left text-gray-700">
+        <caption class="p-5 text-2xl font-semibold text-left text-gray-900 bg-blue-100 ">
+          List of Criminals
+          <div class=" float-right relative">
+            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+              <svg
+                class="w-5 h-5 text-gray-500"
+                aria-hidden="true"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </div>
+            <input
+              value={search}
+              onChange={(event) => setSearch(event.target.value)}
+              type="text"
+              id="table-search"
+              class="focus:outline-none focus:ring-4 focus:border-blue-600  block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50"
+              placeholder="Search using Civilian ID"
+            />
+          </div>
+        </caption>
+        <thead class="text-xs uppercase bg-blue-50">
+          <tr>
+            <th scope="col" class="px-6 py-3">
+              Name
             </th>
-            <td class="px-6 py-4">111111</td>
-            <td class="px-6 py-4">31</td>
-            <td class="px-6 py-4">150</td>
-            <td class="px-6 py-4">01/01/1991</td>
-            <td class="px-6 py-4">english</td>
-          </tr> */}
-
-            {criminalData.map((element, index) => {
-              // let Criminal = criminal(criminals[0]).methods.getData().call();
-              // console.log(element[0])
-              return (
-                <Link href={"CriminalDetail//" + criminals[index]}>
-                  <tr class="cursor-pointer transition ease-in-out delay-100 hover:bg-blue-100 bg-white border-b ">
-                    <td class="px-6 py-4">{element[1]}</td>
-                    <td class="px-6 py-4">{element[2]}</td>
-                    <td class="px-6 py-4">{element[3]}</td>
-                    <td class="px-6 py-4">{element[4]}</td>
-                    <td class="px-6 py-4">{element[7]}</td>
-                    <td class="px-6 py-4">{element[16]}</td>
-                  </tr>
-                </Link>
-              );
-            })}
-          </tbody>
-        </table>
-        <a href="/addCriminalForm">
-          <button
-            type="button"
-            class="w-full text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm px-32 py-2.5 text-center"
-          >
-            Add Criminal
-          </button>
-        </a>
-      </div>
-    </>
+            <th scope="col" class="px-6 py-3">
+              Civilian ID
+            </th>
+            <th scope="col" class="px-6 py-3">
+              age
+            </th>
+            <th scope="col" class="px-6 py-3">
+              height
+            </th>
+            <th scope="col" class="px-6 py-3">
+              date of birth
+            </th>
+            <th scope="col" class="px-6 py-3">
+              native language
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {criminalData.map((element, index) => {
+            // let Criminal = criminal(criminals[0]).methods.getData().call();
+            console.log(criminalData);
+            if (search) {
+              if (!element[2].includes(search)) {
+                return;
+              }
+            }
+            return (
+              <Link href={"CriminalDetail//" + criminals[index]}>
+                <tr class="cursor-pointer transition ease-in-out delay-100 hover:bg-blue-100 bg-white border-b ">
+                  <td class="px-6 py-4">{element[1]}</td>
+                  <td class="px-6 py-4">{element[2]}</td>
+                  <td class="px-6 py-4">{element[3]}</td>
+                  <td class="px-6 py-4">{element[4]}</td>
+                  <td class="px-6 py-4">{element[7]}</td>
+                  <td class="px-6 py-4">{element[16]}</td>
+                </tr>
+              </Link>
+            );
+          })}
+        </tbody>
+      </table>
+      <a href="/addCriminalForm">
+        <button
+          type="button"
+          class="w-full text-white bg-gradient-to-r from-cyan-300 via-cyan-400 to-cyan-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium text-sm px-32 py-2.5 text-center"
+        >
+          Add Criminal
+        </button>
+      </a>
+    </div>
   );
 }
 
