@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import createCriminal from "../ethereum/createCriminal.js";
-import criminal from "../ethereum/criminal.js";
 import Link from "next/link";
+import createFIR from "../ethereum/createFIR";
+import fir from "../ethereum/fir";
 
-export default function index({ criminals, criminalData }) {
+function viewFIRs({ FIRs, FIRData }) {
   const [search, setSearch] = useState();
 
   return (
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg m-28 border border-gray mb-44">
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg m-28 border border-gray mb-52">
       <table class="w-full text-sm text-left text-gray-700">
         <caption class="p-5 text-2xl font-semibold text-left text-gray-900 bg-blue-100 ">
-          List of Criminals
+          FIR List
           <div class=" float-right relative">
             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
               <svg
@@ -46,61 +46,55 @@ export default function index({ criminals, criminalData }) {
               Civilian ID
             </th>
             <th scope="col" class="px-6 py-3">
-              age
+              details of incident
             </th>
             <th scope="col" class="px-6 py-3">
-              height
+              place of incident
             </th>
             <th scope="col" class="px-6 py-3">
-              date of birth
+              Police Station
             </th>
             <th scope="col" class="px-6 py-3">
-              native language
+              Being Investigated
             </th>
           </tr>
         </thead>
         <tbody>
-          {criminalData.map((element, index) => {
+          {FIRData.map((element, index) => {
             // let Criminal = criminal(criminals[0]).methods.getData().call();
-            console.log(criminalData);
+            // console.log(criminalData);
             if (search) {
-              if (!element[2].includes(search)) {
+              if (!element[1].includes(search)) {
                 return;
               }
             }
             return (
-              <Link href={"CriminalDetail//" + criminals[index]}>
+              <Link href={"FIRDetail//" + FIRs[index]}>
                 <tr class="cursor-pointer transition ease-in-out delay-100 hover:bg-blue-100 bg-white border-b ">
+                  <td class="px-6 py-4">{element[0]}</td>
                   <td class="px-6 py-4">{element[1]}</td>
-                  <td class="px-6 py-4">{element[2]}</td>
-                  <td class="px-6 py-4">{element[3]}</td>
-                  <td class="px-6 py-4">{element[4]}</td>
-                  <td class="px-6 py-4">{element[7]}</td>
-                  <td class="px-6 py-4">{element[16]}</td>
+                  <td class="px-6 py-4">{element[9]}</td>
+                  <td class="px-6 py-4">{element[8]}</td>
+                  <td class="px-6 py-4">{element[5]}</td>
+                  <td class="px-6 py-4">{element[10] ? "Yes" : "No"}</td>
                 </tr>
               </Link>
             );
           })}
         </tbody>
       </table>
-      <a href="/addCriminalForm">
-        <button
-          type="button"
-          class="w-full text-white bg-gradient-to-r from-cyan-300 via-cyan-400 to-cyan-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium text-sm px-32 py-2.5 text-center"
-        >
-          Add Criminal
-        </button>
-      </a>
     </div>
   );
 }
 
-index.getInitialProps = async () => {
-  const criminals = await createCriminal.methods.getDeployedContracts().call();
-  const criminalData = await Promise.all(
-    criminals.map((element) => criminal(element).methods.getData().call())
+export default viewFIRs;
+
+viewFIRs.getInitialProps = async () => {
+  const FIRs = await createFIR.methods.getDeployedContracts().call();
+  const FIRData = await Promise.all(
+    FIRs.map((element) => fir(element).methods.getData().call())
   );
-  console.log(criminals);
-  console.log(criminalData);
-  return { criminals, criminalData };
+  console.log(FIRs);
+  console.log(FIRData);
+  return { FIRs, FIRData };
 };

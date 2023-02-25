@@ -13,14 +13,14 @@
 						"type": "string"
 					},
 					{
-						"internalType": "uint256",
+						"internalType": "string",
 						"name": "_cid",
-						"type": "uint256"
+						"type": "string"
 					},
 					{
-						"internalType": "uint256",
+						"internalType": "string",
 						"name": "_phoneNumber",
-						"type": "uint256"
+						"type": "string"
 					},
 					{
 						"internalType": "string",
@@ -78,14 +78,14 @@
 						"type": "string"
 					},
 					{
-						"internalType": "uint256",
+						"internalType": "string",
 						"name": "",
-						"type": "uint256"
+						"type": "string"
 					},
 					{
-						"internalType": "uint256",
+						"internalType": "string",
 						"name": "",
-						"type": "uint256"
+						"type": "string"
 					},
 					{
 						"internalType": "string",
@@ -167,11 +167,11 @@
 	},
 	"sources": {
 		"ethereum\\contracts\\civilian_reports.sol": {
-			"keccak256": "0x2aa565e038fa24731bade55ba3f3279c1a7421f250cccf12a1e45f68d200170c",
+			"keccak256": "0xd1ece519b662f5e7983e86d354fe7fcb5852c31e58c28da654ea01b58bce1e12",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://ebb2ee7399d85326705c553039dfc17a4c78a2e1dc1a04ca29977753efeba3f1",
-				"dweb:/ipfs/QmT7u9j9C88aeW7ZewLP8B1mfAfRG2zxGxtU75MkAUxbVX"
+				"bzz-raw://ec962352c6056a78b9adb85d76bc89f6538d81a9806c6f809f98831154a732d1",
+				"dweb:/ipfs/QmYnexfsSENFxHNnj843sqa8Q4neZZaW2WVBvZFtNmJbNn"
 			]
 		}
 	},

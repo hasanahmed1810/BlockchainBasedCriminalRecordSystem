@@ -4,7 +4,7 @@ pragma solidity >=0.7.0 <0.9.0;
 contract CreateFIR {
     address[] public deployedContracts;
 
-    function createFIR (string memory _name, uint _cid, uint _phoneNumber, string memory _emailaddress, string memory _currentAddress, string memory _policeStation, string memory _dateOfIncident, string memory _timeOfIncident, string memory _placeOfIncident, string memory _detailsOfIncident) public {
+    function createFIR (string memory _name, string memory _cid, string memory _phoneNumber, string memory _emailaddress, string memory _currentAddress, string memory _policeStation, string memory _dateOfIncident, string memory _timeOfIncident, string memory _placeOfIncident, string memory _detailsOfIncident) public {
         deployedContracts.push(address(new FIR(_name, _cid, _phoneNumber, _emailaddress, _currentAddress, _policeStation, _dateOfIncident, _timeOfIncident, _placeOfIncident, _detailsOfIncident)));
     }
 
@@ -15,8 +15,8 @@ contract CreateFIR {
 
 contract FIR {
     string name; //0
-    uint cid; //1
-    uint phoneNumber; //2
+    string cid; //1
+    string phoneNumber; //2
     string emailAddress; //3
     string currentAddress; // 4
     string policeStation; //5
@@ -26,7 +26,7 @@ contract FIR {
     string detailsOfIncident; //9
     bool beingInvestigated; //10
 
-    constructor (string memory _name, uint _cid, uint _phoneNumber, string memory _emailaddress, string memory _currentAddress, string memory _policeStation, string memory _dateOfIncident, string memory _timeOfIncident, string memory _placeOfIncident, string memory _detailsOfIncident){
+    constructor (string memory _name, string memory _cid, string memory _phoneNumber, string memory _emailaddress, string memory _currentAddress, string memory _policeStation, string memory _dateOfIncident, string memory _timeOfIncident, string memory _placeOfIncident, string memory _detailsOfIncident){
         name = _name;
         cid = _cid;
         phoneNumber = _phoneNumber;
@@ -40,7 +40,7 @@ contract FIR {
         beingInvestigated = false;
     }
 
-    function getData() public view returns(string memory, uint, uint, string memory, string memory, string memory, string memory, string memory, string memory, string memory, bool){
+    function getData() public view returns(string memory, string memory, string memory, string memory, string memory, string memory, string memory, string memory, string memory, string memory, bool){
         return (name, cid, phoneNumber, emailAddress, currentAddress, policeStation, dateOfIncident, timeOfIncident, placeOfIncident, detailsOfIncident, beingInvestigated);
     }
 

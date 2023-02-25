@@ -25,7 +25,11 @@ function AuthGuard({ children }) {
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      if (user || router.asPath == "/landingPage" || router.asPath == "/createFIR") {
+      if (
+        user ||
+        router.asPath == "/landingPage" ||
+        router.asPath == "/createFIR"
+      ) {
         if (user) {
           setUser(user.email);
         } else {
@@ -41,7 +45,7 @@ function AuthGuard({ children }) {
     <div>
       <nav class="bg-blue-100 border-gray-200 px-2 sm:px-4 py-2.5 rounded ">
         <div class="container flex flex-wrap items-center justify-between mx-auto">
-          <a href="/" class="flex items-center">
+          <a href="/landingPage" class="flex items-center">
             <img
               src="https://flowbite.com/docs/images/logo.svg"
               class="h-6 mr-3 sm:h-9"
@@ -53,6 +57,36 @@ function AuthGuard({ children }) {
           </a>
           <div class="hidden w-full md:block md:w-auto" id="navbar-default">
             <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white ">
+            {user && (
+                <li>
+                  <button
+                    onClick={() => router.push("/")}
+                    class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                  >
+                    View Criminals
+                  </button>
+                </li>
+              )}
+              {user && (
+                <li>
+                  <button
+                    onClick={() => router.push("/viewFIRs")}
+                    class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                  >
+                    View FIRs
+                  </button>
+                </li>
+              )}
+              {!user && (
+                <li>
+                  <button
+                    onClick={() => router.push("/createFIR")}
+                    class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                  >
+                    Submit FIR
+                  </button>
+                </li>
+              )}
               {user && (
                 <li>
                   <button
