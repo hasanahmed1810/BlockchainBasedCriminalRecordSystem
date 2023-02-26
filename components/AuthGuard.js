@@ -46,27 +46,13 @@ function AuthGuard({ children }) {
       <nav class="bg-blue-100 border-gray-200 px-2 sm:px-4 py-2.5 rounded ">
         <div class="container flex flex-wrap items-center justify-between mx-auto">
           <a href="/landingPage" class="flex items-center">
-            <img
-              src="/blockchain-logo.png"
-              class="h-12 mr-3"
-              alt=""
-            />
+            <img src="/blockchain-logo.png" class="h-12 mr-3" alt="" />
             <span class="self-center text-xl font-semibold whitespace-nowrap ">
               Criminal Chain
             </span>
           </a>
           <div class="hidden w-full md:block md:w-auto" id="navbar-default">
             <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white ">
-            {user && (
-                <li>
-                  <button
-                    onClick={() => router.push("/")}
-                    class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
-                  >
-                    Criminals
-                  </button>
-                </li>
-              )}
               {user && (
                 <li>
                   <button
@@ -84,6 +70,26 @@ function AuthGuard({ children }) {
                     class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
                   >
                     Investigations
+                  </button>
+                </li>
+              )}
+              {user && (
+                <li>
+                  <button
+                    onClick={() => router.push("/viewChargeSheets")}
+                    class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                  >
+                    Charge Sheets
+                  </button>
+                </li>
+              )}
+              {user && (
+                <li>
+                  <button
+                    onClick={() => router.push("/")}
+                    class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                  >
+                    Criminals
                   </button>
                 </li>
               )}

@@ -1,0 +1,136 @@
+{
+	"compiler": {
+		"version": "0.8.6+commit.11564f7e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_cid",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_dob",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_charge",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_act",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_section",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_court",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_courtAddress",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_dateOfHearing",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_timeOfHearing",
+						"type": "string"
+					}
+				],
+				"name": "createChargeSheet",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "deployedContracts",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getDeployedContracts",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"ethereum\\contracts\\charge_sheet.sol": "CreateChargeSheet"
+		},
+		"evmVersion": "berlin",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"ethereum\\contracts\\charge_sheet.sol": {
+			"keccak256": "0x3744fb25f9319ee74d267fd036e9cdd0f77bc1145a9ddd2ea505ee7fd7135102",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://e40e4a7105c1eed664d8b72f7e85d343af51ff8fe3529ce2abafa314503bdfef",
+				"dweb:/ipfs/QmUKPJvas7RjWmP456uKbwhNpGd5zji5KGXznCHwDxrrJy"
+			]
+		}
+	},
+	"version": 1
+}

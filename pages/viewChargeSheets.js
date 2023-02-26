@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import createInvestigation from "../ethereum/createInvestigation";
-import Investigation from "../ethereum/Investigation";
+import createChargeSheet from "../ethereum/createChargeSheet";
+import chargeSheet from "../ethereum/chargeSheet";
 
-function viewInvestigations({ investigationData }) {
+function viewChargeSheets({chargeSheets, chargeSheetData}) {
   const [search, setSearch] = useState();
 
   return (
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg m-28 border border-gray mb-52">
       <table class="w-full text-sm text-left text-gray-700">
         <caption class="p-5 text-2xl font-semibold text-left text-gray-900 bg-blue-100 ">
-          Investigation List
+          List of Charge Sheets
           <div class=" float-right relative">
             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
               <svg
@@ -33,64 +33,52 @@ function viewInvestigations({ investigationData }) {
               type="text"
               id="table-search"
               class="focus:outline-none focus:ring-4 focus:border-blue-600  block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50"
-              placeholder="Search using Officer ID"
+              placeholder="Search using Civilian ID"
             />
           </div>
         </caption>
         <thead class="text-xs uppercase bg-blue-50">
           <tr>
             <th scope="col" class="px-6 py-3">
-              Officer Name
+              Name of the Accused
             </th>
             <th scope="col" class="px-6 py-3">
-              Officer ID
+              Civilian ID of the Accused
             </th>
             <th scope="col" class="px-6 py-3">
-              Badge Number
+              Date of Birth of the Accused
             </th>
             <th scope="col" class="px-6 py-3">
-              Officer Rank
+              Charge of the Accused
             </th>
             <th scope="col" class="px-6 py-3">
-              Investigation Status
+              Under the Act
             </th>
-            <th scope="col" class="px-6 py-3"></th>
+            <th scope="col" class="px-6 py-3">
+              Under Section
+            </th>
           </tr>
         </thead>
         <tbody>
-          {investigationData.map((element, index) => {
+          {chargeSheetData.map((element, index) => {
             // let Criminal = criminal(criminals[0]).methods.getData().call();
             // console.log(criminalData);
             if (search) {
-              if (!element[2].includes(search)) {
+              if (!element[1].includes(search)) {
                 return;
               }
             }
             return (
-              <tr class="cursor-pointer transition ease-in-out delay-100 hover:bg-blue-100 bg-white border-b ">
-                <Link href={"FIRDetail//" + element[0]}>
+              <Link href={"chargeSheetDetail//" + chargeSheets[index]}>
+                <tr class="cursor-pointer transition ease-in-out delay-100 hover:bg-blue-100 bg-white border-b ">
+                  <td class="px-6 py-4">{element[0]}</td>
                   <td class="px-6 py-4">{element[1]}</td>
-                </Link>
-                <Link href={"FIRDetail//" + element[0]}>
                   <td class="px-6 py-4">{element[2]}</td>
-                </Link>
-
-                <Link href={"FIRDetail//" + element[0]}>
                   <td class="px-6 py-4">{element[3]}</td>
-                </Link>
-
-                <Link href={"FIRDetail//" + element[0]}>
                   <td class="px-6 py-4">{element[4]}</td>
-                </Link>
-
-                <Link href={"FIRDetail//" + element[0]}>
-                  <td class="px-6 py-4">
-                    {element[5] ? "Complete" : "In Progress"}
-                  </td>
-                </Link>
-
-                <td class="bg-cyan-500 text-white px-6 py-4">Issue Charge Sheet</td>
-              </tr>
+                  <td class="px-6 py-4">{element[5]}</td>
+                </tr>
+              </Link>
             );
           })}
         </tbody>
@@ -99,18 +87,16 @@ function viewInvestigations({ investigationData }) {
   );
 }
 
-viewInvestigations.getInitialProps = async () => {
-  const investigations = await createInvestigation.methods
+viewChargeSheets.getInitialProps = async () => {
+  const chargeSheets = await createChargeSheet.methods
     .getDeployedContracts()
     .call();
-  const investigationData = await Promise.all(
-    investigations.map((element) =>
-      Investigation(element).methods.getData().call()
-    )
+  const chargeSheetData = await Promise.all(
+    chargeSheets.map((element) => chargeSheet(element).methods.getData().call())
   );
-  console.log(investigations);
-  console.log(investigationData);
-  return { investigations, investigationData };
+  console.log(chargeSheets);
+  console.log(chargeSheetData);
+  return { chargeSheets, chargeSheetData };
 };
 
-export default viewInvestigations;
+export default viewChargeSheets;

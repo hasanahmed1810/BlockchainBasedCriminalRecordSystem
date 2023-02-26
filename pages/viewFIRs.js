@@ -10,7 +10,7 @@ function viewFIRs({ FIRs, FIRData }) {
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg m-28 border border-gray mb-52">
       <table class="w-full text-sm text-left text-gray-700">
         <caption class="p-5 text-2xl font-semibold text-left text-gray-900 bg-blue-100 ">
-          FIR List
+          List of FIRs
           <div class=" float-right relative">
             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
               <svg
