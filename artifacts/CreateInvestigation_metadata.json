@@ -1,0 +1,111 @@
+{
+	"compiler": {
+		"version": "0.8.6+commit.11564f7e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_FIRAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_cid",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_badgeNumber",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_rank",
+						"type": "string"
+					}
+				],
+				"name": "createInvestigation",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "deployedContracts",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getDeployedContracts",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"ethereum\\contracts\\investigation.sol": "CreateInvestigation"
+		},
+		"evmVersion": "berlin",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"ethereum\\contracts\\investigation.sol": {
+			"keccak256": "0xc3a4bde40410c3bda832950b3542fa59ce0a2065dfebb359e395a8f102155fef",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://a6453c5976b695530ff60f1f3c3416abd61b3dce7c8ec3e125766a0ca1c5f2a8",
+				"dweb:/ipfs/QmWqBeaVrL24uW8K7RSayRmGYgyh4ir57n1ZXBvBB2vnQ4"
+			]
+		}
+	},
+	"version": 1
+}

@@ -47,9 +47,9 @@ function AuthGuard({ children }) {
         <div class="container flex flex-wrap items-center justify-between mx-auto">
           <a href="/landingPage" class="flex items-center">
             <img
-              src="https://flowbite.com/docs/images/logo.svg"
-              class="h-6 mr-3 sm:h-9"
-              alt="Flowbite Logo"
+              src="/blockchain-logo.png"
+              class="h-12 mr-3"
+              alt=""
             />
             <span class="self-center text-xl font-semibold whitespace-nowrap ">
               Criminal Chain
@@ -63,7 +63,7 @@ function AuthGuard({ children }) {
                     onClick={() => router.push("/")}
                     class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
                   >
-                    View Criminals
+                    Criminals
                   </button>
                 </li>
               )}
@@ -73,7 +73,17 @@ function AuthGuard({ children }) {
                     onClick={() => router.push("/viewFIRs")}
                     class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
                   >
-                    View FIRs
+                    FIRs
+                  </button>
+                </li>
+              )}
+              {user && (
+                <li>
+                  <button
+                    onClick={() => router.push("/viewInvestigations")}
+                    class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                  >
+                    Investigations
                   </button>
                 </li>
               )}

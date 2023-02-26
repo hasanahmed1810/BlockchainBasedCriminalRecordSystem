@@ -4,7 +4,7 @@ import criminal from "../../ethereum/criminal.js";
 function criminalDetail({ criminalData, id, criminalRecords }) {
   return (
     <>
-      <div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-28 mt-28 mb-16 border border-gray">
+      <div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-28 mt-28 mb-12 border border-gray">
         <table class="w-full text-sm text-left text-gray-700 ">
           <caption class="p-5 text-2xl font-semibold text-left text-gray-900 bg-blue-100 ">
             <img
@@ -48,7 +48,7 @@ function criminalDetail({ criminalData, id, criminalRecords }) {
               <td class="px-6 py-4">{criminalData[7]}</td>
               <td class="px-6 py-4">{criminalData[16]}</td>
             </tr>
-            <tr class="bg-blue-50 border-b ">
+            <tr class="text-xs text-gray-700 bg-blue-50 border-b ">
               <th scope="col" class="px-6 py-3">
                 HAIR COLOR
               </th>
@@ -76,7 +76,7 @@ function criminalDetail({ criminalData, id, criminalRecords }) {
               <td class="px-6 py-4">{criminalData[15]}</td>
               <td class="px-6 py-4">{criminalData[11]}</td>
             </tr>
-            <tr class="bg-blue-50 border-b ">
+            <tr class="text-xs text-gray-700  bg-blue-50 border-b ">
               <th scope="col" class="px-6 py-3">
                 MOTHER'S NAME
               </th>
@@ -155,7 +155,7 @@ function criminalDetail({ criminalData, id, criminalRecords }) {
         <a href={"/addRecord//" + id}>
           <button
             type="button"
-            class="w-full text-white bg-gradient-to-r from-cyan-300 via-cyan-400 to-cyan-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300  font-medium text-sm px-32 py-2.5 text-center"
+            class="w-full text-white bg-gradient-to-r from-cyan-300 via-cyan-400 to-cyan-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300  font-medium text-sm px-32 py-2.5 text-center"
           >
             Add Criminal Record
           </button>
