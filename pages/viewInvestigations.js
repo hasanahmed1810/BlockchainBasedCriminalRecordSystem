@@ -54,9 +54,7 @@ function viewInvestigations({ investigationData }) {
             <th scope="col" class="px-6 py-3">
               Investigation Status
             </th>
-            <th scope="col" class="px-6 py-3">
-              
-            </th>
+            <th scope="col" class="px-6 py-3"></th>
           </tr>
         </thead>
         <tbody>
@@ -69,16 +67,30 @@ function viewInvestigations({ investigationData }) {
               }
             }
             return (
-              <Link href={"FIRDetail//" + element[0]}>
-                <tr class="cursor-pointer transition ease-in-out delay-100 hover:bg-blue-100 bg-white border-b ">
+              <tr class="cursor-pointer transition ease-in-out delay-100 hover:bg-blue-100 bg-white border-b ">
+                <Link href={"FIRDetail//" + element[0]}>
                   <td class="px-6 py-4">{element[1]}</td>
+                </Link>
+                <Link href={"FIRDetail//" + element[0]}>
                   <td class="px-6 py-4">{element[2]}</td>
+                </Link>
+
+                <Link href={"FIRDetail//" + element[0]}>
                   <td class="px-6 py-4">{element[3]}</td>
+                </Link>
+
+                <Link href={"FIRDetail//" + element[0]}>
                   <td class="px-6 py-4">{element[4]}</td>
-                  <td class="px-6 py-4">{element[5] ? "Complete" : "In Progress"}</td>
-                  <td class="px-6 py-4">Issue Charge Sheet</td>
-                </tr>
-              </Link>
+                </Link>
+
+                <Link href={"FIRDetail//" + element[0]}>
+                  <td class="px-6 py-4">
+                    {element[5] ? "Complete" : "In Progress"}
+                  </td>
+                </Link>
+
+                <td class="bg-cyan-500 text-white px-6 py-4">Issue Charge Sheet</td>
+              </tr>
             );
           })}
         </tbody>
@@ -98,7 +110,7 @@ viewInvestigations.getInitialProps = async () => {
   );
   console.log(investigations);
   console.log(investigationData);
-  return { investigationData };
+  return { investigations, investigationData };
 };
 
 export default viewInvestigations;
