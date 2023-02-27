@@ -102,7 +102,7 @@ function chargeSheetDetail({ id, chargeSheetData }) {
             class="w-full text-white bg-gradient-to-r from-cyan-300 via-cyan-400 to-cyan-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium text-sm px-32 py-2.5 text-center"
           >
             {chargeSheetData[10]
-              ? "Person Has Been Found Guilty"
+              ? "Person Has Been Marked Guilty"
               : "Mark This Person As Guilty and Add to Criminal Records"}
           </button>
         </a>
