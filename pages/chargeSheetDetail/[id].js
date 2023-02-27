@@ -94,7 +94,20 @@ function chargeSheetDetail({ id, chargeSheetData }) {
           </tbody>
         </table>
 
-        {chargeSheetData[10] ? (
+        <a href="/addCriminalForm">
+          <button
+            onClick={onClick}
+            disabled={chargeSheetData[10]}
+            type="button"
+            class="w-full text-white bg-gradient-to-r from-cyan-300 via-cyan-400 to-cyan-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium text-sm px-32 py-2.5 text-center"
+          >
+            {chargeSheetData[10]
+              ? "Person Has Been Found Guilty"
+              : "Mark This Person As Guilty and Add to Criminal Records"}
+          </button>
+        </a>
+
+        {/* {chargeSheetData[10] ? (
           <a href="/addCriminalForm">
             <button
               type="button"
@@ -111,7 +124,7 @@ function chargeSheetDetail({ id, chargeSheetData }) {
           >
             Mark This Person As Guilty
           </button>
-        )}
+        )} */}
       </div>
     </>
   );
