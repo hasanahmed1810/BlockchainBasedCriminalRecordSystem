@@ -2,6 +2,14 @@ import React from "react";
 import chargeSheet from "../../ethereum/chargeSheet";
 
 function chargeSheetDetail({ id, chargeSheetData }) {
+  async function onClick() {
+    await chargeSheet(id).methods.personIsGuilty().send({
+      from: "0x19EB8fcE962B24acf466dbA05B52Aa299B24Ac27",
+      gas: 6721975,
+    });
+    location.reload();
+  }
+
   return (
     <>
       <div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-28 mt-28 mb-12 border border-gray">
@@ -86,13 +94,24 @@ function chargeSheetDetail({ id, chargeSheetData }) {
           </tbody>
         </table>
 
-        {/* <button
-          disabled={chargeSheetData[10]}
-          type="button"
-          class="w-full text-white bg-gradient-to-r from-cyan-300 via-cyan-400 to-cyan-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium text-sm px-32 py-2.5 text-center"
-        >
-          {chargeSheetData[10] ? "Investigation Started" : "Start an Investigation"}
-        </button> */}
+        {chargeSheetData[10] ? (
+          <a href="/addCriminalForm">
+            <button
+              type="button"
+              class="w-full text-white bg-gradient-to-r from-cyan-300 via-cyan-400 to-cyan-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium text-sm px-32 py-2.5 text-center"
+            >
+              Add to Records as Person Has Been Found Guilty
+            </button>
+          </a>
+        ) : (
+          <button
+            onClick={onClick}
+            type="button"
+            class="w-full text-white bg-gradient-to-r from-cyan-300 via-cyan-400 to-cyan-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium text-sm px-32 py-2.5 text-center"
+          >
+            Mark This Person As Guilty
+          </button>
+        )}
       </div>
     </>
   );

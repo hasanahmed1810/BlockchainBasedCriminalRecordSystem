@@ -25,7 +25,7 @@ contract ChargeSheet {
     string courtAddress;
     string dateOfHearing;
     string timeOfHearing;
-    bool isGuilty;
+    bool isGuilty = false;
 
     constructor(string memory _name, string memory _cid, string memory _dob, string memory _charge, string memory _act, string memory _section, string memory _court, string memory _courtAddress, string memory _dateOfHearing, string memory _timeOfHearing) {
         name = _name;
@@ -38,11 +38,10 @@ contract ChargeSheet {
         courtAddress = _courtAddress;
         dateOfHearing = _dateOfHearing;
         timeOfHearing = _timeOfHearing;
-        isGuilty = false;
     }
 
-    function getData() public view returns(string memory, string memory,string memory,string memory,string memory,string memory,string memory,string memory,string memory,string memory){
-        return (name, cid, dob, charge, act, section, court, courtAddress, dateOfHearing, timeOfHearing);
+    function getData() public view returns(string memory, string memory,string memory,string memory,string memory,string memory,string memory,string memory,string memory,string memory, bool){
+        return (name, cid, dob, charge, act, section, court, courtAddress, dateOfHearing, timeOfHearing, isGuilty);
     }
 
     function personIsGuilty() public {
