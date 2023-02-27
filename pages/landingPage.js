@@ -40,7 +40,7 @@ function landingPage() {
           <br />
           <br />
           <h2 class="text-3xl text-blue-300 font-semibold">
-            A Block Chain Based Criminal Record System
+            A Blockchain Based Criminal Record System
           </h2>
           <h2 class="text-xl text-blue-200 font-semibold">
             Developed By Hasan Ahmed and Abdullahi Ali
