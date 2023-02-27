@@ -3,7 +3,7 @@ import Link from "next/link";
 import createChargeSheet from "../ethereum/createChargeSheet";
 import chargeSheet from "../ethereum/chargeSheet";
 
-function viewChargeSheets({chargeSheets, chargeSheetData}) {
+function viewChargeSheets({ chargeSheets, chargeSheetData }) {
   const [search, setSearch] = useState();
 
   return (
@@ -46,9 +46,6 @@ function viewChargeSheets({chargeSheets, chargeSheetData}) {
               Civilian ID of the Accused
             </th>
             <th scope="col" class="px-6 py-3">
-              Date of Birth of the Accused
-            </th>
-            <th scope="col" class="px-6 py-3">
               Charge of the Accused
             </th>
             <th scope="col" class="px-6 py-3">
@@ -57,12 +54,13 @@ function viewChargeSheets({chargeSheets, chargeSheetData}) {
             <th scope="col" class="px-6 py-3">
               Under Section
             </th>
+            <th scope="col" class="px-6 py-3">
+              Found Guilty
+            </th>
           </tr>
         </thead>
         <tbody>
           {chargeSheetData.map((element, index) => {
-            // let Criminal = criminal(criminals[0]).methods.getData().call();
-            // console.log(criminalData);
             if (search) {
               if (!element[1].includes(search)) {
                 return;
@@ -73,10 +71,10 @@ function viewChargeSheets({chargeSheets, chargeSheetData}) {
                 <tr class="cursor-pointer transition ease-in-out delay-100 hover:bg-blue-100 bg-white border-b ">
                   <td class="px-6 py-4">{element[0]}</td>
                   <td class="px-6 py-4">{element[1]}</td>
-                  <td class="px-6 py-4">{element[2]}</td>
                   <td class="px-6 py-4">{element[3]}</td>
                   <td class="px-6 py-4">{element[4]}</td>
                   <td class="px-6 py-4">{element[5]}</td>
+                  <td class="px-6 py-4">{element[10] ? "Yes" : "No"}</td>
                 </tr>
               </Link>
             );
