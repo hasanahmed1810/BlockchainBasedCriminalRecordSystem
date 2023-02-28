@@ -7,7 +7,7 @@ function chargeSheetDetail({ id, chargeSheetData }) {
       from: "0x19EB8fcE962B24acf466dbA05B52Aa299B24Ac27",
       gas: 6721975,
     });
-    location.reload();
+    // location.reload();
   }
 
   return (
