@@ -13,6 +13,7 @@ function AuthGuard({ children }) {
       .then(() => {
         // Sign-out successful.
         setUser(null);
+        router.push("/landingPage");
       })
       .catch((error) => {
         // An error happened.
@@ -25,18 +26,24 @@ function AuthGuard({ children }) {
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      if (
-        user ||
-        router.asPath == "/landingPage" ||
-        router.asPath == "/createFIR"
-      ) {
-        if (user) {
-          setUser(user.email);
-        } else {
-          setUser(null);
-        }
+      console.log(user);
+      if (user) {
+        setUser(user);
       } else {
-        router.push("/login");
+        setUser(null);
+      }
+      if (
+        (!user &&
+          (router.asPath == "/login" || router.asPath == "/signUpCivilian")) ||
+        (user &&
+          user.displayName == "civilian" &&
+          router.asPath == "/createFIR") ||
+        (user &&
+          user.displayName == null &&
+          (router.asPath != "/login" && router.asPath != "/signUpCivilian"))
+      ) {
+      } else {
+        router.push("/landingPage");
       }
     });
   }, []);
@@ -53,47 +60,51 @@ function AuthGuard({ children }) {
           </a>
           <div class="hidden w-full md:block md:w-auto" id="navbar-default">
             <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white ">
-              {user && (
-                <li>
-                  <button
-                    onClick={() => router.push("/viewFIRs")}
-                    class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
-                  >
-                    FIRs
-                  </button>
-                </li>
-              )}
-              {user && (
-                <li>
-                  <button
-                    onClick={() => router.push("/viewInvestigations")}
-                    class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
-                  >
-                    Investigations
-                  </button>
-                </li>
-              )}
-              {user && (
-                <li>
-                  <button
-                    onClick={() => router.push("/viewChargeSheets")}
-                    class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
-                  >
-                    Charge Sheets
-                  </button>
-                </li>
-              )}
-              {user && (
-                <li>
-                  <button
-                    onClick={() => router.push("/")}
-                    class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
-                  >
-                    Criminals
-                  </button>
-                </li>
-              )}
-              {!user && (
+              {!user ||
+                (user.displayName == null && (
+                  <li>
+                    <button
+                      onClick={() => router.push("/viewFIRs")}
+                      class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                    >
+                      FIRs
+                    </button>
+                  </li>
+                ))}
+              {!user ||
+                (user.displayName == null && (
+                  <li>
+                    <button
+                      onClick={() => router.push("/viewInvestigations")}
+                      class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                    >
+                      Investigations
+                    </button>
+                  </li>
+                ))}
+              {!user ||
+                (user.displayName == null && (
+                  <li>
+                    <button
+                      onClick={() => router.push("/viewChargeSheets")}
+                      class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                    >
+                      Charge Sheets
+                    </button>
+                  </li>
+                ))}
+              {!user ||
+                (user.displayName == null && (
+                  <li>
+                    <button
+                      onClick={() => router.push("/")}
+                      class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                    >
+                      Criminals
+                    </button>
+                  </li>
+                ))}
+              {user?.displayName == "civilian" && (
                 <li>
                   <button
                     onClick={() => router.push("/createFIR")}
@@ -109,7 +120,7 @@ function AuthGuard({ children }) {
                     class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 cursor-default md:p-0 "
                     aria-current="page"
                   >
-                    {user}
+                    {user.email}
                   </button>
                 </li>
               )}
@@ -121,6 +132,16 @@ function AuthGuard({ children }) {
                   {user ? "Log out" : "Log in"}
                 </button>
               </li>
+              {!user && (
+                <li>
+                  <button
+                    onClick={() => router.push("/signUpCivilian")}
+                    class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                  >
+                    Civilian Sign up
+                  </button>
+                </li>
+              )}
             </ul>
           </div>
         </div>

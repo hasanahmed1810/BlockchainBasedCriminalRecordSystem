@@ -1,10 +1,10 @@
 import * as React from "react";
 import { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useRouter } from "next/router";
 import { auth } from "../firebase";
 
-export default function login() {
+function signUpCivilian() {
   const router = useRouter();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -12,21 +12,21 @@ export default function login() {
   async function submit(event) {
     event.preventDefault();
 
-    signInWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
+        updateProfile(auth.currentUser, {
+          displayName: "civilian"
+        });
         const user = userCredential.user;
         console.log(user);
-        if (user.displayName == "civilian") {
-          router.push("/landingPage");
-        } else {
-          router.push("/");
-        }
+        router.push("/landingPage");
         // ...
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        console.log(errorMessage);
         router.push("/wrong");
       });
   }
@@ -44,7 +44,7 @@ export default function login() {
         <div class="w-full bg-blue-50 rounded-lg shadow  md:mt-0 sm:max-w-md xl:p-0 ">
           <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
-              Sign in to your account
+              Create civilian account
             </h1>
             <form onSubmit={submit} class="space-y-4 md:space-y-6" action="#">
               <div>
@@ -85,7 +85,7 @@ export default function login() {
                 type="submit"
                 class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
               >
-                Sign in
+                Sign up
               </button>
             </form>
           </div>
@@ -94,3 +94,5 @@ export default function login() {
     </section>
   );
 }
+
+export default signUpCivilian;
