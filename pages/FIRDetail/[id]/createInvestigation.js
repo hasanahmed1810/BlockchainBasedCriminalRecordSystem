@@ -45,6 +45,9 @@ function Investigation({ id }) {
         onSubmit={submit}
         class="bg-blue-50 m-28 border border-gray p-16 shadow-md sm:rounded-lg"
       >
+        <h1 class="text-xl font-bold leading-tight tracking-tight text-blue-700 md:text-2xl mb-8">
+          Start an Investigation
+        </h1>
         <div class="grid gap-6 mb-6 md:grid-cols-2">
           <div>
             <label

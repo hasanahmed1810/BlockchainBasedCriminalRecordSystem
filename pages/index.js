@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import createCriminal from "../ethereum/createCriminal.js";
 import criminal from "../ethereum/criminal.js";
 import Link from "next/link";
-
+import PersonIcon from "@mui/icons-material/Person";
+import BadgeIcon from "@mui/icons-material/Badge";
+import HeightIcon from "@mui/icons-material/Height";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import LanguageIcon from "@mui/icons-material/Language";
+import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
 export default function index({ criminals, criminalData }) {
   const [search, setSearch] = useState();
 
@@ -40,22 +45,22 @@ export default function index({ criminals, criminalData }) {
         <thead class="text-xs uppercase bg-blue-50">
           <tr>
             <th scope="col" class="px-6 py-3">
-              Name
+              <PersonIcon /> Name
             </th>
             <th scope="col" class="px-6 py-3">
-              Civilian ID
+              <BadgeIcon /> Civilian ID
             </th>
             <th scope="col" class="px-6 py-3">
-              age
+              <AccessTimeFilledIcon /> age
             </th>
             <th scope="col" class="px-6 py-3">
-              height
+              <HeightIcon /> height
             </th>
             <th scope="col" class="px-6 py-3">
-              date of birth
+              <CalendarMonthIcon /> date of birth
             </th>
             <th scope="col" class="px-6 py-3">
-              native language
+              <LanguageIcon /> native language
             </th>
           </tr>
         </thead>

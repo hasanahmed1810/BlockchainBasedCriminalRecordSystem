@@ -6,7 +6,6 @@ import { db } from "../firebase.js";
 import { doc, setDoc } from "firebase/firestore";
 
 function FIR() {
-
   const router = useRouter();
 
   const [name, setName] = useState();
@@ -20,14 +19,30 @@ function FIR() {
   const [POI, setPOI] = useState();
   const [details, setDetails] = useState();
 
-  async function submit (event) {
+  async function submit(event) {
     event.preventDefault();
     // console.log(name, civID, phone, email, address, station, DOI, TOI, POI, details)
-    const transaction = await createFIR.methods.createFIR(name, civID, phone, email, address, station, DOI, TOI, POI, details).send({
-      from: "0x19EB8fcE962B24acf466dbA05B52Aa299B24Ac27",
-      gas: 6721975,
-    })
-    await setDoc(doc(db, "create FIR transactions", transaction.transactionHash), transaction);
+    const transaction = await createFIR.methods
+      .createFIR(
+        name,
+        civID,
+        phone,
+        email,
+        address,
+        station,
+        DOI,
+        TOI,
+        POI,
+        details
+      )
+      .send({
+        from: "0x19EB8fcE962B24acf466dbA05B52Aa299B24Ac27",
+        gas: 6721975,
+      });
+    await setDoc(
+      doc(db, "create FIR transactions", transaction.transactionHash),
+      transaction
+    );
     router.push("/success");
   }
 
@@ -41,6 +56,9 @@ function FIR() {
       onSubmit={submit}
       class="bg-blue-50 m-28 border border-gray p-16 shadow-md sm:rounded-lg"
     >
+      <h1 class="text-xl font-bold leading-tight tracking-tight text-blue-700 md:text-2xl mb-8">
+        Submit an FIR
+      </h1>
       <div class="grid gap-6 mb-6 md:grid-cols-2">
         <div>
           <label

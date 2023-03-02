@@ -38,7 +38,6 @@ function landingPage() {
         <div class="flex-1 my-48 ml-32">
           <h1 class="text-6xl text-blue-400 font-bold">Criminal Chain</h1>
           <br />
-          <br />
           <h2 class="text-3xl text-blue-300 font-semibold">
             A Blockchain Based Criminal Record System
           </h2>

@@ -68,7 +68,10 @@ export default function AddressForm() {
       from: "0x19EB8fcE962B24acf466dbA05B52Aa299B24Ac27",
       gas: 6721975,
     });
-    await setDoc(doc(db, "create criminal transactions", transaction.transactionHash), transaction);
+    await setDoc(
+      doc(db, "create criminal transactions", transaction.transactionHash),
+      transaction
+    );
     router.push("/");
     console.log(data);
   }
@@ -77,6 +80,9 @@ export default function AddressForm() {
       onSubmit={submit}
       class="bg-blue-50 m-28 border border-gray p-16 shadow-md sm:rounded-lg"
     >
+      <h1 class="text-xl font-bold leading-tight tracking-tight text-blue-700 md:text-2xl mb-8">
+        Add Criminal
+      </h1>
       <div class="grid gap-6 mb-6 md:grid-cols-2">
         <div>
           <label

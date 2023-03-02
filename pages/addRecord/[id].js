@@ -28,7 +28,10 @@ export default function addRecord() {
         from: "0x19EB8fcE962B24acf466dbA05B52Aa299B24Ac27",
         gas: 6721975,
       });
-    await setDoc(doc(db, "add record transactions", transaction.transactionHash), transaction);
+    await setDoc(
+      doc(db, "add record transactions", transaction.transactionHash),
+      transaction
+    );
     router.push("/CriminalDetail/" + id);
   }
 
@@ -37,6 +40,9 @@ export default function addRecord() {
       onSubmit={submit}
       class="bg-blue-50 m-28 border border-gray p-16 shadow-md sm:rounded-lg"
     >
+      <h1 class="text-xl font-bold leading-tight tracking-tight text-blue-700 md:text-2xl mb-8">
+        Add Record
+      </h1>
       <div class="mb-6">
         <label for="trial" class="block mb-2 text-sm font-medium text-gray-900">
           Trial Number

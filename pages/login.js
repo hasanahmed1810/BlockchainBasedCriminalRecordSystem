@@ -43,7 +43,7 @@ export default function login() {
         </a>
         <div class="w-full bg-blue-50 rounded-lg shadow  md:mt-0 sm:max-w-md xl:p-0 ">
           <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
+            <h1 class="text-xl font-bold leading-tight tracking-tight md:text-2xl text-blue-700">
               Sign in to your account
             </h1>
             <form onSubmit={submit} class="space-y-4 md:space-y-6" action="#">

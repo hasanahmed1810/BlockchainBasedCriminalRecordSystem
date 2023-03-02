@@ -26,7 +26,6 @@ function AuthGuard({ children }) {
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      console.log(user);
       if (user) {
         setUser(user);
       } else {
@@ -40,7 +39,8 @@ function AuthGuard({ children }) {
           router.asPath == "/createFIR") ||
         (user &&
           user.displayName == null &&
-          (router.asPath != "/login" && router.asPath != "/signUpCivilian"))
+          router.asPath != "/login" &&
+          router.asPath != "/signUpCivilian")
       ) {
       } else {
         router.push("/landingPage");
@@ -65,7 +65,11 @@ function AuthGuard({ children }) {
                   <li>
                     <button
                       onClick={() => router.push("/viewFIRs")}
-                      class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                      class={
+                        router.asPath == "/viewFIRs"
+                          ? "block py-2 pl-3 pr-4 text-blue-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                          : "block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                      }
                     >
                       FIRs
                     </button>
@@ -76,7 +80,11 @@ function AuthGuard({ children }) {
                   <li>
                     <button
                       onClick={() => router.push("/viewInvestigations")}
-                      class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                      class={
+                        router.asPath == "/viewInvestigations"
+                          ? "block py-2 pl-3 pr-4 text-blue-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                          : "block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                      }
                     >
                       Investigations
                     </button>
@@ -87,7 +95,11 @@ function AuthGuard({ children }) {
                   <li>
                     <button
                       onClick={() => router.push("/viewChargeSheets")}
-                      class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                      class={
+                        router.asPath == "/viewChargeSheets"
+                          ? "block py-2 pl-3 pr-4 text-blue-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                          : "block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                      }
                     >
                       Charge Sheets
                     </button>
@@ -98,7 +110,11 @@ function AuthGuard({ children }) {
                   <li>
                     <button
                       onClick={() => router.push("/")}
-                      class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                      class={
+                        router.asPath == "/"
+                          ? "block py-2 pl-3 pr-4 text-blue-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                          : "block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                      }
                     >
                       Criminals
                     </button>
@@ -108,7 +124,11 @@ function AuthGuard({ children }) {
                 <li>
                   <button
                     onClick={() => router.push("/createFIR")}
-                    class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                    class={
+                      router.asPath == "/createFIR"
+                        ? "block py-2 pl-3 pr-4 text-blue-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                        : "block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                    }
                   >
                     Submit FIR
                   </button>
@@ -127,7 +147,11 @@ function AuthGuard({ children }) {
               <li>
                 <button
                   onClick={user ? signout : logIn}
-                  class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                  class={
+                    router.asPath == "/login"
+                      ? "block py-2 pl-3 pr-4 text-blue-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                      : "block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                  }
                 >
                   {user ? "Log out" : "Log in"}
                 </button>
@@ -136,7 +160,11 @@ function AuthGuard({ children }) {
                 <li>
                   <button
                     onClick={() => router.push("/signUpCivilian")}
-                    class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                    class={
+                      router.asPath == "/signUpCivilian"
+                        ? "block py-2 pl-3 pr-4 text-blue-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                        : "block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                    }
                   >
                     Civilian Sign up
                   </button>

@@ -90,7 +90,7 @@ function viewInvestigations({ investigations, investigationData }) {
                 </Link>
 
                 {element[5] ? (
-                  <td class="bg-cyan-400 text-white px-6 py-4 cursor-default">
+                  <td class="bg-cyan-500 text-white px-6 py-4 cursor-default">
                     Charge Sheet Issued
                   </td>
                 ) : (
