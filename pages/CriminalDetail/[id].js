@@ -4,7 +4,7 @@ import criminal from "../../ethereum/criminal.js";
 function criminalDetail({ criminalData, id, criminalRecords }) {
   return (
     <>
-      <div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-28 mt-28 mb-12 border border-gray">
+      <div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-28 mt-28 mb-4 border border-gray">
         <table class="w-full text-sm text-left text-gray-700 ">
           <caption class="p-5 text-2xl font-semibold text-left text-gray-900 bg-blue-100 ">
             <img
@@ -106,12 +106,23 @@ function criminalDetail({ criminalData, id, criminalRecords }) {
             </tr>
           </tbody>
         </table>
+      </div>
+
+      <div class="rounded-lg mx-28 mb-16">
         <a href="/">
           <button
             type="button"
-            class="w-full text-white bg-gradient-to-r from-cyan-300 via-cyan-400 to-cyan-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium text-sm px-32 py-2.5 text-center"
+            class="shadow-md mr-4 text-white rounded-lg bg-gradient-to-r from-cyan-300 via-cyan-300 to-cyan-400 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium text-sm px-24 py-2.5 text-center"
           >
-            Go Back
+            Return
+          </button>
+        </a>
+        <a href={"/addRecord//" + id}>
+          <button
+            type="button"
+            class="shadow-md rounded-lg text-white bg-gradient-to-r from-cyan-300 via-cyan-300 to-cyan-400 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300  font-medium text-sm px-24 py-2.5 text-center"
+          >
+            Add Criminal Record
           </button>
         </a>
       </div>
@@ -152,14 +163,6 @@ function criminalDetail({ criminalData, id, criminalRecords }) {
             ))}
           </tbody>
         </table>
-        <a href={"/addRecord//" + id}>
-          <button
-            type="button"
-            class="w-full text-white bg-gradient-to-r from-cyan-300 via-cyan-400 to-cyan-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300  font-medium text-sm px-32 py-2.5 text-center"
-          >
-            Add Criminal Record
-          </button>
-        </a>
       </div>
     </>
   );
@@ -169,7 +172,7 @@ criminalDetail.getInitialProps = async ({ query }) => {
   const { id } = query;
   const criminalData = await criminal(id).methods.getData().call();
   const criminalRecords = await criminal(id).methods.getRecords().call();
-  console.log(criminalRecords);
+  // console.log(criminalRecords);
   return { criminalData, id, criminalRecords };
 };
 

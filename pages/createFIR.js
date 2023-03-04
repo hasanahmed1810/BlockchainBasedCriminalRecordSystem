@@ -85,7 +85,8 @@ function FIR() {
           </label>
           <input
             onChange={(event) => setCid(event.target.value)}
-            type="text"
+            type="tel"
+            pattern="[0-9]{13}"
             id="CID"
             class=" border border-blue-300 focus:outline-none focus:ring-4 focus:border-blue-50 text-gray-900 text-sm rounded-lg block w-full p-2.5 "
             placeholder=""
@@ -101,7 +102,8 @@ function FIR() {
           </label>
           <input
             onChange={(event) => setPhone(event.target.value)}
-            type="text"
+            type="tel"
+            pattern="[0-9]{10}"
             id="phone"
             class=" border border-blue-300 focus:outline-none focus:ring-4 focus:border-blue-50 text-gray-900 text-sm rounded-lg  block w-full p-2.5 "
             placeholder=""
@@ -117,7 +119,7 @@ function FIR() {
           </label>
           <input
             onChange={(event) => setEmail(event.target.value)}
-            type="text"
+            type="email"
             id="email"
             class=" border border-blue-300 focus:outline-none focus:ring-4 focus:border-blue-50 text-gray-900 text-sm rounded-lg  block w-full p-2.5  "
             placeholder=""
@@ -165,7 +167,7 @@ function FIR() {
           </label>
           <input
             onChange={(event) => setDOI(event.target.value)}
-            type="text"
+            type="date"
             id="DOI"
             class=" border border-blue-300 focus:outline-none focus:ring-4 focus:border-blue-50 text-gray-900 text-sm rounded-lg  block w-full p-2.5 "
             placeholder=""
@@ -181,7 +183,7 @@ function FIR() {
           </label>
           <input
             onChange={(event) => setTOI(event.target.value)}
-            type="text"
+            type="time"
             id="TOI"
             class=" border border-blue-300 focus:outline-none focus:ring-4 focus:border-blue-50 text-gray-900 text-sm rounded-lg  block w-full p-2.5 "
             placeholder=""
@@ -209,7 +211,7 @@ function FIR() {
             for="details"
             class="block mb-2 text-sm font-medium text-gray-900 "
           >
-            Details of Incident
+            The Incident
           </label>
           <input
             onChange={(event) => setDetails(event.target.value)}

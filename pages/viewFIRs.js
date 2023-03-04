@@ -46,7 +46,7 @@ function viewFIRs({ FIRs, FIRData }) {
               Civilian ID
             </th>
             <th scope="col" class="px-6 py-3">
-              details of incident
+              The incident
             </th>
             <th scope="col" class="px-6 py-3">
               place of incident
