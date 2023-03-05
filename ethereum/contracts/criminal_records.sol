@@ -4,7 +4,7 @@ pragma solidity >=0.7.0 <0.9.0;
 struct CriminalData {
     string pictureCID; //0
     string name; //1
-    uint256 civilianID; //2
+    string civilianID; //2
     uint256 age; //3
     uint256 height; //4
     string mothersName; //5
@@ -46,7 +46,7 @@ contract Criminal {
 
     string pictureCID;
     string name;
-    uint256 civilianID;
+    string civilianID;
     uint256 age;
     uint256 height;
     string mothersName;

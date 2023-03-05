@@ -20,9 +20,9 @@
 								"type": "string"
 							},
 							{
-								"internalType": "uint256",
+								"internalType": "string",
 								"name": "civilianID",
-								"type": "uint256"
+								"type": "string"
 							},
 							{
 								"internalType": "uint256",
@@ -163,9 +163,9 @@
 								"type": "string"
 							},
 							{
-								"internalType": "uint256",
+								"internalType": "string",
 								"name": "civilianID",
-								"type": "uint256"
+								"type": "string"
 							},
 							{
 								"internalType": "uint256",
@@ -310,7 +310,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"ethereum\\contracts\\backend.sol": "Criminal"
+			"ethereum\\contracts\\criminal_records.sol": "Criminal"
 		},
 		"evmVersion": "berlin",
 		"libraries": {},
@@ -324,12 +324,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"ethereum\\contracts\\backend.sol": {
-			"keccak256": "0x88e2d5a77e72024069d4f480e61a8e29c823ff56c51eea98571538233fa56d8b",
+		"ethereum\\contracts\\criminal_records.sol": {
+			"keccak256": "0xe5e225f37f496d3488606103b9d5b87a01c3228a9d9779fbf569f440a1976d16",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://805c753de08459650399bf6f646451f71c6bcd1b1c8ffa1f13b5bc07187f7ac6",
-				"dweb:/ipfs/QmbahoRn3oHF4TjnXdN7ikyKtpvGPG9zcTwwwx7yL8UceL"
+				"bzz-raw://97c4bfdac6a561a487e813632a51c22cec56a9fbf6d2a7382e5c66663c6918da",
+				"dweb:/ipfs/QmP585CxtU69k2ozWxwyAgMAYCNBYRygf8thwbMcBsD3oG"
 			]
 		}
 	},
