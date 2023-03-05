@@ -67,7 +67,7 @@ function viewLossReports({ lossReports, lossReportsData }) {
               }
             }
             return (
-              <Link href={"lossReportDetail//" + lossReports[index]}>
+              <Link href={"lossReportDetail/" + lossReports[index]}>
                 <tr class="cursor-pointer transition ease-in-out delay-100 hover:bg-blue-100 bg-white border-b ">
                   <td class="px-6 py-4">{element[4]}</td>
                   <td class="px-6 py-4">{element[5]}</td>
