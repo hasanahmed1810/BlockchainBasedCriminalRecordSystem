@@ -2,6 +2,7 @@ import React from "react";
 import chargeSheet from "../../ethereum/chargeSheet";
 
 function chargeSheetDetail({ id, chargeSheetData }) {
+  // need to be removed later on
   async function onClick() {
     await chargeSheet(id).methods.personIsGuilty().send({
       from: "0x19EB8fcE962B24acf466dbA05B52Aa299B24Ac27",
@@ -20,7 +21,7 @@ function chargeSheetDetail({ id, chargeSheetData }) {
             <br />
             Contract ID: {id}
           </caption>
-          <thead class="text-xs text-gray-700 uppercase bg-blue-50 border border-b-1">
+          <thead class="text-xs text-gray-700 uppercase bg-blue-50">
             <tr>
               <th scope="col" class="px-6 py-3">
                 Name
@@ -43,7 +44,7 @@ function chargeSheetDetail({ id, chargeSheetData }) {
             </tr>
           </thead>
           <tbody>
-            <tr class="bg-white border-b ">
+            <tr class="bg-white">
               <td class="px-6 py-4">{chargeSheetData[0]}</td>
               <td class="px-6 py-4">{chargeSheetData[1]}</td>
               <td class="px-6 py-4">{chargeSheetData[2]}</td>
@@ -53,17 +54,9 @@ function chargeSheetDetail({ id, chargeSheetData }) {
             </tr>
           </tbody>
         </table>
-        <a href="/viewChargeSheets">
-          <button
-            type="button"
-            class="w-full text-white bg-gradient-to-r from-cyan-300 via-cyan-400 to-cyan-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium text-sm px-32 py-2.5 text-center"
-          >
-            Go Back
-          </button>
-        </a>
       </div>
 
-      <div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-28 mb-28 border border-gray">
+      <div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-28 mb-4 border border-gray">
         <table class="w-full text-sm text-left text-gray-700 ">
           <caption class="p-5 text-lg font-semibold text-left text-gray-900 bg-blue-100 ">
             Details of the Hearing
@@ -85,7 +78,7 @@ function chargeSheetDetail({ id, chargeSheetData }) {
             </tr>
           </thead>
           <tbody>
-            <tr class="bg-white border-b ">
+            <tr class="bg-white">
               <td class="px-6 py-4">{chargeSheetData[6]}</td>
               <td class="px-6 py-4">{chargeSheetData[7]}</td>
               <td class="px-6 py-4">{chargeSheetData[8]}</td>
@@ -93,38 +86,29 @@ function chargeSheetDetail({ id, chargeSheetData }) {
             </tr>
           </tbody>
         </table>
+      </div>
 
+      <div class="rounded-lg mx-28 mb-28">
+        <a href="/viewChargeSheets">
+          <button
+            type="button"
+            class="shadow-md mr-4 text-white rounded-lg bg-gradient-to-r from-cyan-300 via-cyan-300 to-cyan-400 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium text-sm px-24 py-2.5 text-center"
+          >
+            Return
+          </button>
+        </a>
         <a href="/addCriminalForm">
           <button
             onClick={onClick}
             disabled={chargeSheetData[10]}
             type="button"
-            class="w-full text-white bg-gradient-to-r from-cyan-300 via-cyan-400 to-cyan-500 enabled:hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium text-sm px-32 py-2.5 text-center"
+            class="shadow-md text-white rounded-lg bg-gradient-to-r from-cyan-300 via-cyan-300 to-cyan-400 enabled:hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium text-sm px-24 py-2.5 text-center"
           >
             {chargeSheetData[10]
               ? "Person Has Been Marked Guilty"
               : "Mark This Person As Guilty and Add to Criminal Records"}
           </button>
         </a>
-
-        {/* {chargeSheetData[10] ? (
-          <a href="/addCriminalForm">
-            <button
-              type="button"
-              class="w-full text-white bg-gradient-to-r from-cyan-300 via-cyan-400 to-cyan-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium text-sm px-32 py-2.5 text-center"
-            >
-              Add to Records as Person Has Been Found Guilty
-            </button>
-          </a>
-        ) : (
-          <button
-            onClick={onClick}
-            type="button"
-            class="w-full text-white bg-gradient-to-r from-cyan-300 via-cyan-400 to-cyan-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium text-sm px-32 py-2.5 text-center"
-          >
-            Mark This Person As Guilty
-          </button>
-        )} */}
       </div>
     </>
   );

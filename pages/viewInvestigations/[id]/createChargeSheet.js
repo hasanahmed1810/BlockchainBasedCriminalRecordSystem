@@ -205,7 +205,7 @@ function ChargeSheet({ id }) {
           </label>
           <input
             onChange={(event) => setDoh(event.target.value)}
-            type="text"
+            type="date"
             id="doh"
             class=" border border-blue-300 focus:outline-none focus:ring-4 focus:border-blue-50 text-gray-900 text-sm rounded-lg  block w-full p-2.5 "
             placeholder=""
@@ -221,7 +221,7 @@ function ChargeSheet({ id }) {
           </label>
           <input
             onChange={(event) => setToh(event.target.value)}
-            type="text"
+            type="time"
             id="toh"
             class=" border border-blue-300 focus:outline-none focus:ring-4 focus:border-blue-50 text-gray-900 text-sm rounded-lg  block w-full p-2.5 "
             placeholder=""

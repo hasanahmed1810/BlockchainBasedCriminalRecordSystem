@@ -17,7 +17,7 @@ function criminalDetail({ criminalData, id, criminalRecords }) {
             <br />
             Contract ID: {id}
           </caption>
-          <thead class="text-xs text-gray-700 uppercase bg-blue-50 border border-b-1">
+          <thead class="text-xs text-gray-700 uppercase bg-blue-50">
             <tr>
               <th scope="col" class="px-6 py-3">
                 Name
@@ -40,7 +40,7 @@ function criminalDetail({ criminalData, id, criminalRecords }) {
             </tr>
           </thead>
           <tbody>
-            <tr class="bg-white border-b ">
+            <tr class="bg-white ">
               <td class="px-6 py-4">{criminalData[1]}</td>
               <td class="px-6 py-4">{criminalData[2]}</td>
               <td class="px-6 py-4">{criminalData[3]}</td>
@@ -48,7 +48,7 @@ function criminalDetail({ criminalData, id, criminalRecords }) {
               <td class="px-6 py-4">{criminalData[7]}</td>
               <td class="px-6 py-4">{criminalData[16]}</td>
             </tr>
-            <tr class="text-xs text-gray-700 bg-blue-50 border-b ">
+            <tr class="text-xs text-gray-700 bg-blue-50 ">
               <th scope="col" class="px-6 py-3">
                 HAIR COLOR
               </th>
@@ -68,7 +68,7 @@ function criminalDetail({ criminalData, id, criminalRecords }) {
                 PHYSIQUE
               </th>
             </tr>
-            <tr class="bg-white border border-b-1">
+            <tr class="bg-white">
               <td class="px-6 py-4  ">{criminalData[9]}</td>
               <td class="px-6 py-4">{criminalData[10]}</td>
               <td class="px-6 py-4">{criminalData[12]}</td>
@@ -76,7 +76,7 @@ function criminalDetail({ criminalData, id, criminalRecords }) {
               <td class="px-6 py-4">{criminalData[15]}</td>
               <td class="px-6 py-4">{criminalData[11]}</td>
             </tr>
-            <tr class="text-xs text-gray-700  bg-blue-50 border-b ">
+            <tr class="text-xs text-gray-700  bg-blue-50 ">
               <th scope="col" class="px-6 py-3">
                 MOTHER'S NAME
               </th>

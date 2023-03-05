@@ -65,7 +65,7 @@ export default function addRecord() {
           </label>
           <input
             onChange={(event) => setDate(event.target.value)}
-            type="text"
+            type="date"
             id="date"
             class=" border border-blue-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-4 focus:border-blue-60 block w-full p-2.5 "
             required

@@ -32,7 +32,7 @@ function viewChargeSheets({ chargeSheets, chargeSheetData }) {
               onChange={(event) => setSearch(event.target.value)}
               type="text"
               id="table-search"
-              class="focus:outline-none focus:ring-4 focus:border-blue-600  block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50"
+              class="focus:outline-none focus:ring-4 focus:border-blue-600  block p-2 pl-10 text-sm text-gray-900 border border-blue-300 rounded-lg w-80 bg-gray-50"
               placeholder="Search using Civilian ID"
             />
           </div>
