@@ -25,7 +25,7 @@ function LossReportDetail({ id, lossReportData, investigator, pid }) {
             <br />
             Contract ID: {id}
           </caption>
-          <thead class="text-xs text-gray-700 uppercase bg-blue-50 border border-b-1">
+          <thead class="text-xs text-gray-700 uppercase bg-blue-50">
             <tr>
               <th scope="col" class="px-6 py-3">
                 Property Type
@@ -48,7 +48,7 @@ function LossReportDetail({ id, lossReportData, investigator, pid }) {
             </tr>
           </thead>
           <tbody>
-            <tr class="bg-white border-b ">
+            <tr class="bg-white ">
               <td class="px-6 py-4">{lossReportData[4]}</td>
               <td class="px-6 py-4">{lossReportData[5]}</td>
               <td class="px-6 py-4">{lossReportData[6]}</td>
@@ -82,7 +82,7 @@ function LossReportDetail({ id, lossReportData, investigator, pid }) {
             </tr>
           </thead>
           <tbody>
-            <tr class="bg-white border-b ">
+            <tr class="bg-white ">
               <td class="px-6 py-4">{lossReportData[0]}</td>
               <td class="px-6 py-4">{lossReportData[1]}</td>
               <td class="px-6 py-4">{lossReportData[2]}</td>
@@ -115,7 +115,7 @@ function LossReportDetail({ id, lossReportData, investigator, pid }) {
               </tr>
             </thead>
             <tbody>
-              <tr class="bg-white border-b ">
+              <tr class="bg-white ">
                 <td class="px-6 py-4">{investigator[0]}</td>
                 <td class="px-6 py-4">{investigator[1]}</td>
                 <td class="px-6 py-4">{investigator[2]}</td>
