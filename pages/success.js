@@ -18,7 +18,7 @@ function success() {
         <Lottie options={defaultOptions} height={400} width={400} />
         <div class="text-center">
           <h1 class="md:text-2xl text-base text-gray-900 font-semibold text-center">
-            Your FIR has been submitted
+            Your Report has been submitted
           </h1>
           <div class="py-10 text-center">
             <a

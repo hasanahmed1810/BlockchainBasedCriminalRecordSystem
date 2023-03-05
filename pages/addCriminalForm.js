@@ -39,12 +39,12 @@ export default function AddressForm() {
 
   async function submit(event) {
     event.preventDefault();
-    const cid = await client.put(image, {
+    const pid = await client.put(image, {
       name: name,
       wrapWithDirectory: false,
     });
     const data = [
-      cid,
+      pid,
       name,
       civID,
       age,
@@ -73,7 +73,6 @@ export default function AddressForm() {
       transaction
     );
     router.push("/");
-    console.log(data);
   }
   return (
     <form
@@ -109,7 +108,8 @@ export default function AddressForm() {
           </label>
           <input
             onChange={(event) => setCid(event.target.value)}
-            type="text"
+            type="tel"
+            pattern="[0-9]{13}"
             id="CID"
             class=" border border-blue-300 focus:outline-none focus:ring-4 focus:border-blue-50 text-gray-900 text-sm rounded-lg block w-full p-2.5 "
             placeholder=""
@@ -221,7 +221,7 @@ export default function AddressForm() {
           </label>
           <input
             onChange={(event) => setDob(event.target.value)}
-            type="text"
+            type="date"
             id="DOB"
             class=" border border-blue-300 focus:outline-none focus:ring-4 focus:border-blue-50 text-gray-900 text-sm rounded-lg  block w-full p-2.5 "
             placeholder=""

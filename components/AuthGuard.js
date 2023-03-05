@@ -36,7 +36,9 @@ function AuthGuard({ children }) {
           (router.asPath == "/login" || router.asPath == "/signUpCivilian")) ||
         (user &&
           user.displayName == "civilian" &&
-          router.asPath == "/createFIR") ||
+          (router.asPath == "/createFIR" ||
+            router.asPath == "/createLossReport" ||
+            router.asPath == "/createMissingPersonReport")) ||
         (user &&
           user.displayName == null &&
           router.asPath != "/login" &&
@@ -60,6 +62,36 @@ function AuthGuard({ children }) {
           </a>
           <div class="hidden w-full md:block md:w-auto" id="navbar-default">
             <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white ">
+              {!user ||
+                (user.displayName == null && (
+                  <li>
+                    <button
+                      onClick={() => router.push("/viewMissingPersons")}
+                      class={
+                        router.asPath == "/viewMissingPersons"
+                          ? "block py-2 pl-3 pr-4 text-blue-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                          : "block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                      }
+                    >
+                      Missing Persons
+                    </button>
+                  </li>
+                ))}
+              {!user ||
+                (user.displayName == null && (
+                  <li class="border-r border-blue-200 pr-8">
+                    <button
+                      onClick={() => router.push("/viewLossReports")}
+                      class={
+                        router.asPath == "/viewLossReports"
+                          ? "block py-2 pl-3 pr-4 text-blue-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                          : "block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                      }
+                    >
+                      Loss Reports
+                    </button>
+                  </li>
+                ))}
               {!user ||
                 (user.displayName == null && (
                   <li>
@@ -107,7 +139,7 @@ function AuthGuard({ children }) {
                 ))}
               {!user ||
                 (user.displayName == null && (
-                  <li>
+                  <li class="border-r border-blue-200 pr-8">
                     <button
                       onClick={() => router.push("/")}
                       class={
@@ -131,6 +163,34 @@ function AuthGuard({ children }) {
                     }
                   >
                     Submit FIR
+                  </button>
+                </li>
+              )}
+              {user?.displayName == "civilian" && (
+                <li>
+                  <button
+                    onClick={() => router.push("/createLossReport")}
+                    class={
+                      router.asPath == "/createLossReport"
+                        ? "block py-2 pl-3 pr-4 text-blue-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                        : "block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                    }
+                  >
+                    Submit Loss Report
+                  </button>
+                </li>
+              )}
+              {user?.displayName == "civilian" && (
+                <li class="border-r border-blue-200 pr-10">
+                  <button
+                    onClick={() => router.push("/createMissingPersonReport")}
+                    class={
+                      router.asPath == "/createMissingPersonReport"
+                        ? "block py-2 pl-3 pr-4 text-blue-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                        : "block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                    }
+                  >
+                    Submit Missing Person Report
                   </button>
                 </li>
               )}

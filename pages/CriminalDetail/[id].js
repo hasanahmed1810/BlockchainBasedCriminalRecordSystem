@@ -8,7 +8,7 @@ function criminalDetail({ criminalData, id, criminalRecords }) {
         <table class="w-full text-sm text-left text-gray-700 ">
           <caption class="p-5 text-2xl font-semibold text-left text-gray-900 bg-blue-100 ">
             <img
-              class="float-right w-32 rounded-lg bg-blue-100"
+              class="float-right h-32 rounded-lg bg-blue-100"
               src={"https://" + criminalData[0] + ".ipfs.w3s.link"}
               alt=""
             />
