@@ -3,6 +3,7 @@ import Lottie from "react-lottie";
 import * as heroData from "../animations/hero.json";
 import * as securityData from "../animations/security.json";
 import * as ethereumData from "../animations/ethereum.json";
+import * as workFlowData from "../animations/workflow.json";
 
 function landingPage() {
   const heroOptions = {
@@ -27,6 +28,15 @@ function landingPage() {
     loop: true,
     autoplay: true,
     animationData: ethereumData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
+  const workFlowOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: workFlowData,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
     },
@@ -117,6 +127,32 @@ function landingPage() {
         </div>
         <div class="flex-1">
           <Lottie options={ethereumOptions} height={500} width={500} />
+        </div>
+      </div>
+      <hr class="w-2/3 mx-auto h-0.5 mt-16 bg-blue-200 border-0"></hr>
+      <div class="flex m-auto">
+        <div class="flex-1 my-20 mx-24">
+          <Lottie options={workFlowOptions} height={500} width={500} />
+        </div>
+        <div class="flex-1 p-6 bg-blue-100 rounded-lg shadow mr-32 my-32">
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+            Features and Workflow
+          </h5>
+          <p class="mb-3 font-normal text-gray-500">
+            A user can log into our system as a civilian or a police officer. A
+            civilian can submit an FIR report, loss report or report a missing
+            person. These reports can then be looked into by a logged in police
+            officer. After analyzing these reports, a police officer can start
+            an investigation. In case of a loss report or a missing person
+            report, if the investigation is conclusive and the person or
+            property is found they can be marked as found. However, if it is an
+            FIR investigation and a suspect is found, a charge sheet can be
+            issued with the suspects information, the charge they have and the
+            details about their hearing in court. If they are found guilty in
+            court, then they can be marked as guilty and be added to the
+            criminal records. If the criminal commits more crimes in the future
+            those records can also be appended to the previous ones.
+          </p>
         </div>
       </div>
     </>
