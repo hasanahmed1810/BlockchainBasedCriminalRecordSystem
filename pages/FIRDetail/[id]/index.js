@@ -4,7 +4,7 @@ import FIR from "../../../ethereum/fir";
 function FIRDetail({ id, FIRData }) {
   return (
     <>
-      <div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-28 mt-28 mb-12 border border-gray">
+      <div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-28 mt-28 mb-4 border border-gray">
         <table class="w-full text-sm text-left text-gray-700 ">
           <caption class="p-5 text-lg font-semibold text-left text-gray-900 bg-blue-100 ">
             Complainant Information
@@ -107,7 +107,6 @@ function FIRDetail({ id, FIRData }) {
 FIRDetail.getInitialProps = async ({ query }) => {
   const { id } = query;
   const FIRData = await FIR(id).methods.getData().call();
-  //   console.log(FIRData);
   return { id, FIRData };
 };
 

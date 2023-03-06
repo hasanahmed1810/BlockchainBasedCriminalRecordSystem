@@ -1,0 +1,141 @@
+{
+	"compiler": {
+		"version": "0.8.6+commit.11564f7e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_pid",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_cid",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_phoneNumber",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_age",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_height",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_weight",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_dateLastSeen",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_timeLastSeen",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_locationLastSeen",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_modeOfTransportUsed",
+						"type": "string"
+					}
+				],
+				"name": "createMissingPersonReport",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "deployedContracts",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getDeployedContracts",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"ethereum\\contracts\\missing_person.sol": "CreateMissingPerson"
+		},
+		"evmVersion": "berlin",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"ethereum\\contracts\\missing_person.sol": {
+			"keccak256": "0x6ae92eed5c9037f6db33ec96d63f4e86a19128ed27ae88a9221617d987287316",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://9774877e51f35b1bd55bd5939c20d07b6efffd89f4708bc343820c31f781a0ba",
+				"dweb:/ipfs/QmbMkM1DzsSq2HjbgnCMEyG7nJf4ET8aL2da99drHQRjTt"
+			]
+		}
+	},
+	"version": 1
+}
