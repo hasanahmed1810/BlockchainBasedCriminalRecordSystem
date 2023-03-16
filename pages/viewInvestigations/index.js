@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import Link from "next/link";
 import createInvestigation from "../../ethereum/createInvestigation";
 import Investigation from "../../ethereum/Investigation";
+import Fir from "../../ethereum/fir";
 
-function viewInvestigations({ investigations, investigationData }) {
+function viewInvestigations({ investigations, investigationData, FIRData }) {
   const [search, setSearch] = useState();
 
   return (
@@ -52,6 +53,9 @@ function viewInvestigations({ investigations, investigationData }) {
               Officer Rank
             </th>
             <th scope="col" class="px-6 py-3">
+              Incident
+            </th>
+            <th scope="col" class="px-6 py-3">
               Investigation Status
             </th>
             <th scope="col" class="px-6 py-3"></th>
@@ -59,8 +63,6 @@ function viewInvestigations({ investigations, investigationData }) {
         </thead>
         <tbody>
           {investigationData.map((element, index) => {
-            // let Criminal = criminal(criminals[0]).methods.getData().call();
-            // console.log(criminalData);
             if (search) {
               if (!element[2].includes(search)) {
                 return;
@@ -81,6 +83,10 @@ function viewInvestigations({ investigations, investigationData }) {
 
                 <Link href={"FIRDetail//" + element[0]}>
                   <td class="px-6 py-4">{element[4]}</td>
+                </Link>
+
+                <Link href={"FIRDetail//" + element[0]}>
+                  <td class="px-6 py-4">{FIRData[index][9]}</td>
                 </Link>
 
                 <Link href={"FIRDetail//" + element[0]}>
@@ -124,9 +130,12 @@ viewInvestigations.getInitialProps = async () => {
       Investigation(element).methods.getData().call()
     )
   );
+  const FIRData = await Promise.all(
+    investigationData.map((element) => Fir(element[0]).methods.getData().call())
+  );
   console.log(investigations);
   console.log(investigationData);
-  return { investigations, investigationData };
+  return { investigations, investigationData, FIRData };
 };
 
 export default viewInvestigations;
