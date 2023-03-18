@@ -79,7 +79,7 @@ function AuthGuard({ children }) {
                 ))}
               {!user ||
                 (user.displayName == null && (
-                  <li class="border-r border-blue-200 pr-8">
+                  <li>
                     <button
                       onClick={() => router.push("/viewLossReports")}
                       class={
@@ -139,7 +139,7 @@ function AuthGuard({ children }) {
                 ))}
               {!user ||
                 (user.displayName == null && (
-                  <li class="border-r border-blue-200 pr-8">
+                  <li>
                     <button
                       onClick={() => router.push("/")}
                       class={
@@ -149,6 +149,21 @@ function AuthGuard({ children }) {
                       }
                     >
                       Criminals
+                    </button>
+                  </li>
+                ))}
+              {!user ||
+                (user.displayName == null && (
+                  <li class="border-r border-blue-200 pr-8">
+                    <button
+                      onClick={() => router.push("/analytics")}
+                      class={
+                        router.asPath == "/analytics"
+                          ? "block py-2 pl-3 pr-4 text-blue-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                          : "block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                      }
+                    >
+                      Analytics
                     </button>
                   </li>
                 ))}
