@@ -3,6 +3,12 @@ import Link from "next/link";
 import createInvestigation from "../../ethereum/createInvestigation";
 import Investigation from "../../ethereum/Investigation";
 import Fir from "../../ethereum/fir";
+import PersonIcon from "@mui/icons-material/Person";
+import BadgeIcon from '@mui/icons-material/Badge';
+import LocalPoliceIcon from '@mui/icons-material/LocalPolice';
+import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
+import DoneIcon from '@mui/icons-material/Done';
+import FmdBadIcon from '@mui/icons-material/FmdBad';
 
 function viewInvestigations({ investigations, investigationData, FIRData }) {
   const [search, setSearch] = useState();
@@ -41,22 +47,22 @@ function viewInvestigations({ investigations, investigationData, FIRData }) {
         <thead class="text-xs uppercase bg-blue-50">
           <tr>
             <th scope="col" class="px-6 py-3">
-              Officer Name
+              <PersonIcon/> Officer Name
             </th>
             <th scope="col" class="px-6 py-3">
-              Officer ID
+              <BadgeIcon/> Officer ID
             </th>
             <th scope="col" class="px-6 py-3">
-              Badge Number
+              <LocalPoliceIcon/> Badge Number
             </th>
             <th scope="col" class="px-6 py-3">
-              Officer Rank
+              <MilitaryTechIcon/> Officer Rank
             </th>
             <th scope="col" class="px-6 py-3">
-              Incident
+              <FmdBadIcon/> Incident
             </th>
             <th scope="col" class="px-6 py-3">
-              Investigation Status
+              <DoneIcon/> Status
             </th>
             <th scope="col" class="px-6 py-3"></th>
           </tr>
@@ -70,26 +76,26 @@ function viewInvestigations({ investigations, investigationData, FIRData }) {
             }
             return (
               <tr class="cursor-pointer transition ease-in-out delay-100 hover:bg-blue-100 bg-white border-b ">
-                <Link href={"FIRDetail//" + element[0]}>
+                <Link href={"FIRDetail/" + element[0]}>
                   <td class="px-6 py-4">{element[1]}</td>
                 </Link>
-                <Link href={"FIRDetail//" + element[0]}>
+                <Link href={"FIRDetail/" + element[0]}>
                   <td class="px-6 py-4">{element[2]}</td>
                 </Link>
 
-                <Link href={"FIRDetail//" + element[0]}>
+                <Link href={"FIRDetail/" + element[0]}>
                   <td class="px-6 py-4">{element[3]}</td>
                 </Link>
 
-                <Link href={"FIRDetail//" + element[0]}>
+                <Link href={"FIRDetail/" + element[0]}>
                   <td class="px-6 py-4">{element[4]}</td>
                 </Link>
 
-                <Link href={"FIRDetail//" + element[0]}>
+                <Link href={"FIRDetail/" + element[0]}>
                   <td class="px-6 py-4">{FIRData[index][9]}</td>
                 </Link>
 
-                <Link href={"FIRDetail//" + element[0]}>
+                <Link href={"FIRDetail/" + element[0]}>
                   <td class="px-6 py-4">
                     {element[5] ? "Complete" : "In Progress"}
                   </td>
@@ -102,9 +108,9 @@ function viewInvestigations({ investigations, investigationData, FIRData }) {
                 ) : (
                   <Link
                     href={
-                      "viewInvestigations//" +
+                      "viewInvestigations/" +
                       investigations[index] +
-                      "//createChargeSheet"
+                      "/createChargeSheet"
                     }
                   >
                     <td class="bg-cyan-400 text-white px-6 py-4">

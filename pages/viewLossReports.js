@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import Link from "next/link";
 import createLossReport from "../ethereum/createLossReport";
 import lossReport from "../ethereum/lossReport";
+import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
+import DoneIcon from "@mui/icons-material/Done";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import DescriptionIcon from "@mui/icons-material/Description";
+import DriveEtaIcon from '@mui/icons-material/DriveEta';
 
 function viewLossReports({ lossReports, lossReportsData }) {
   const [search, setSearch] = useState();
@@ -40,21 +46,26 @@ function viewLossReports({ lossReports, lossReportsData }) {
         <thead class="text-xs uppercase bg-blue-50">
           <tr>
             <th scope="col" class="px-6 py-3">
+              <DriveEtaIcon />
               Property Type
             </th>
             <th scope="col" class="px-6 py-3">
-              Property Description
+              <DescriptionIcon /> Property Description
             </th>
             <th scope="col" class="px-6 py-3">
+              <CalendarMonthIcon />
               Date of Loss
             </th>
             <th scope="col" class="px-6 py-3">
+              <AccessTimeFilledIcon />
               Time of Loss
             </th>
             <th scope="col" class="px-6 py-3">
+              <LocationOnIcon />
               Where Property Was Lost
             </th>
             <th scope="col" class="px-6 py-3">
+              <DoneIcon />
               Found
             </th>
           </tr>

@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import Link from "next/link";
 import createChargeSheet from "../ethereum/createChargeSheet";
 import chargeSheet from "../ethereum/chargeSheet";
+import PersonIcon from "@mui/icons-material/Person";
+import BadgeIcon from '@mui/icons-material/Badge';
+import DoneIcon from '@mui/icons-material/Done';
+import GavelIcon from '@mui/icons-material/Gavel';
+import ImportContactsIcon from '@mui/icons-material/ImportContacts';
+import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';
 
 function viewChargeSheets({ chargeSheets, chargeSheetData }) {
   const [search, setSearch] = useState();
@@ -40,22 +46,22 @@ function viewChargeSheets({ chargeSheets, chargeSheetData }) {
         <thead class="text-xs uppercase bg-blue-50">
           <tr>
             <th scope="col" class="px-6 py-3">
-              Name of the Accused
+              <PersonIcon/> Name of Accused
             </th>
             <th scope="col" class="px-6 py-3">
-              Civilian ID of the Accused
+              <BadgeIcon/> Civilian ID of Accused
             </th>
             <th scope="col" class="px-6 py-3">
-              Charge of the Accused
+              <GavelIcon/> Charge of Accused
             </th>
             <th scope="col" class="px-6 py-3">
-              Under the Act
+              <LocalLibraryIcon/> Under the Act
             </th>
             <th scope="col" class="px-6 py-3">
-              Under Section
+              <ImportContactsIcon/> Under Section
             </th>
             <th scope="col" class="px-6 py-3">
-              Found Guilty
+              <DoneIcon/> Found Guilty
             </th>
           </tr>
         </thead>

@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import Link from "next/link";
 import createMissingPerson from "../ethereum/createMissingPerson";
 import missingPerson from "../ethereum/missingPerson";
+import PersonIcon from "@mui/icons-material/Person";
+import BadgeIcon from "@mui/icons-material/Badge";
+import HeightIcon from "@mui/icons-material/Height";
+import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
+import ScaleIcon from "@mui/icons-material/Scale";
+import DoneIcon from "@mui/icons-material/Done";
 
 function viewMissingPersons({ missingPersons, missingPersonsData }) {
   const [search, setSearch] = useState();
@@ -40,22 +46,22 @@ function viewMissingPersons({ missingPersons, missingPersonsData }) {
         <thead class="text-xs uppercase bg-blue-50">
           <tr>
             <th scope="col" class="px-6 py-3">
-              name
+              <PersonIcon /> name
             </th>
             <th scope="col" class="px-6 py-3">
-              Civilian id
+              <BadgeIcon /> Civilian id
             </th>
             <th scope="col" class="px-6 py-3">
-              age
+              <AccessTimeFilledIcon /> age
             </th>
             <th scope="col" class="px-6 py-3">
-              height
+              <HeightIcon /> height (cm)
             </th>
             <th scope="col" class="px-6 py-3">
-              weight
+              <ScaleIcon /> weight (kg)
             </th>
             <th scope="col" class="px-6 py-3">
-              Found
+              <DoneIcon /> Found
             </th>
           </tr>
         </thead>

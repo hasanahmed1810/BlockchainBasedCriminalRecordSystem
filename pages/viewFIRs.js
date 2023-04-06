@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import Link from "next/link";
 import createFIR from "../ethereum/createFIR";
 import fir from "../ethereum/fir";
+import FmdBadIcon from '@mui/icons-material/FmdBad';
+import PersonIcon from "@mui/icons-material/Person";
+import BadgeIcon from '@mui/icons-material/Badge';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import LocalPoliceIcon from '@mui/icons-material/LocalPolice';
+import DoneIcon from '@mui/icons-material/Done';
 
 function viewFIRs({ FIRs, FIRData }) {
   const [search, setSearch] = useState();
@@ -40,22 +46,22 @@ function viewFIRs({ FIRs, FIRData }) {
         <thead class="text-xs uppercase bg-blue-50">
           <tr>
             <th scope="col" class="px-6 py-3">
-              Name
+              <PersonIcon/> Name
             </th>
             <th scope="col" class="px-6 py-3">
-              Civilian ID
+              <BadgeIcon/> Civilian ID
             </th>
             <th scope="col" class="px-6 py-3">
-              The incident
+              <FmdBadIcon/> The incident
             </th>
             <th scope="col" class="px-6 py-3">
-              place of incident
+              <LocationOnIcon/> place of incident
             </th>
             <th scope="col" class="px-6 py-3">
-              Police Station
+              <LocalPoliceIcon/> Police Station
             </th>
             <th scope="col" class="px-6 py-3">
-              Being Investigated
+              <DoneIcon/> Being Investigated
             </th>
           </tr>
         </thead>
@@ -67,7 +73,7 @@ function viewFIRs({ FIRs, FIRData }) {
               }
             }
             return (
-              <Link href={"FIRDetail//" + FIRs[index]}>
+              <Link href={"FIRDetail/" + FIRs[index]}>
                 <tr class="cursor-pointer transition ease-in-out delay-100 hover:bg-blue-100 bg-white border-b ">
                   <td class="px-6 py-4">{element[0]}</td>
                   <td class="px-6 py-4">{element[1]}</td>

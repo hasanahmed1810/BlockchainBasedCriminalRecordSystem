@@ -54,7 +54,7 @@ export default function index({ criminals, criminalData }) {
               <AccessTimeFilledIcon /> age
             </th>
             <th scope="col" class="px-6 py-3">
-              <HeightIcon /> height
+              <HeightIcon /> height (in cm)
             </th>
             <th scope="col" class="px-6 py-3">
               <CalendarMonthIcon /> date of birth
