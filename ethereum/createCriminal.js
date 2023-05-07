@@ -3,7 +3,7 @@ import CreateCriminal from "../artifacts/CreateCriminal_metadata.json";
 
 const instance = new web3.eth.Contract(
   CreateCriminal.output.abi,
-  '0x3ac365e2F218e4A3015CA2dC6A713C0BF54B48d5'
+  '0xB145cd2a292F10a3EdaCb87a36Cf7665E4f23da3'
 );
 
 export default instance;

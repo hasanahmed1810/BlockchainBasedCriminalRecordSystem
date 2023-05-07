@@ -3,7 +3,7 @@ import createInvestigation from "../artifacts/CreateInvestigation_metadata.json"
 
 const instance = new web3.eth.Contract(
     createInvestigation.output.abi,
-    "0x602b349bd944593455b15840FcA3aF8d8CFA1e4c"
+    "0xD9551D7973fE3BbE9FEd8f930cec51520fEA8d19"
 );
 
 export default instance;

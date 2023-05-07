@@ -3,7 +3,7 @@ import CreateChargeSheet from "../artifacts/CreateChargeSheet_metadata.json";
 
 const instance = new web3.eth.Contract(
   CreateChargeSheet.output.abi,
-  "0xFF7CAC3866FB422102B46d257edcB31d76f96A15"
+  "0x0328A4607e4117E3020116029FaC74A9042e2204"
 );
 
 export default instance;

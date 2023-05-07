@@ -46,13 +46,13 @@ function viewChargeSheets({ chargeSheets, chargeSheetData }) {
         <thead class="text-xs uppercase bg-blue-50">
           <tr>
             <th scope="col" class="px-6 py-3">
-              <PersonIcon/> Name of Accused
+              <PersonIcon/> Name
             </th>
             <th scope="col" class="px-6 py-3">
-              <BadgeIcon/> Civilian ID of Accused
+              <BadgeIcon/> Civilian ID
             </th>
             <th scope="col" class="px-6 py-3">
-              <GavelIcon/> Charge of Accused
+              <GavelIcon/> Charge
             </th>
             <th scope="col" class="px-6 py-3">
               <LocalLibraryIcon/> Under the Act
