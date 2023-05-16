@@ -84,7 +84,7 @@ describe("fyp e2e test", () => {
 
     cy.get("input").type("4230135784825")
 
-    cy.get("td").contains("john").click()
+    cy.get("td").contains("javed ahmed").click()
 
     cy.get("caption").contains("Criminal Details")
 
